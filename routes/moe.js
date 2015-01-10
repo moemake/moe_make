@@ -41,7 +41,7 @@ router.post('/', function(req, res) {
     } else {
       nextCategoryId = categoryId + 1;
     }
-    var isNextLast = nextCategory === MAX_CATEGORY_ID;
+    var isNextLast = nextCategoryId === MAX_CATEGORY_ID;
     res.send({ nextCategoryId : categoryId, isLast: isLast, isNextLast : isNextLast});
   });
 });

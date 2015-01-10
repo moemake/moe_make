@@ -9,9 +9,9 @@
       <p><%= categoryName %></p>
 
       <ul>
-      <% entries.forEach(function(item) { %>
-        <li class="js-item" data-item-id="<%= item.id %>"><%= item.name %></li>
-      <% }) %>
+        <% entries.forEach(function(item) { %>
+        <li class="js-item" data-item-id="<%= item.entryId %>"><%= item.entry %></li>
+        <% }) %>
       </ul>
 
       <div id="js-btn-next">次へ</div>

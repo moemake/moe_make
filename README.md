@@ -6,3 +6,9 @@
 $ npm install
 $ npm start
 ```
+
+# データ作成
+
+```shell
+$ npm run import
+```

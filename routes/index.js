@@ -3,16 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { 
-    categoryId: 1,  
-    categoryName: '眼',  
-    entries: [
-      { id: 1, name: 'レイプ目' },
-      { id: 2, name: 'ジト目' },
-      { id: 3, name: '糸目' },
-      { id: 4, name: '切れ長目' },
-    ],  
-  });
+  res.redirect('/moe');
 });
 
 module.exports = router;

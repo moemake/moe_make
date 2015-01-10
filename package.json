@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "dropdb": "node ./bin/dropdb",
+    "indexdb": "node ./bin/indexdb",
     "import": "node ./bin/import",
+    "recreate": "node ./bin/dropdb && node ./bin/indexdb && node ./bin/import",
     "csv2json": "csv2json data/sheet.csv data/data.json"
   },
   "dependencies": {

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var session = require('../models/session');
+var result = require('../models/moeResult');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -12,12 +13,10 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  console.log(req.body);
-  var selectedIds = req.body.id;
-  var categoryId = req.body.categoryId;
-  console.log(selectedIds);
-  console.log(categoryId);
-  res.send({ hoge : "hoge" });
+  var names = req.body.name.join(" ");
+  result.store(names, function(err, data){
+    res.send({ result : "ok" });
+  });
 });
 
 module.exports = router;

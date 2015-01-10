@@ -116,6 +116,7 @@
         contentType: 'application/json',
         dataType: "json",
         success: function(data) {
+          console.log(data);
           alert('成功');
         },
         error: function() {

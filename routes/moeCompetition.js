@@ -13,9 +13,10 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  var names = req.body.name.join(" ");
-  result.store(names, function(err, data){
-    res.send({ result : "ok" });
+  var name = req.body.id[0].entryName;
+  //var names = req.body.name.join(" ");
+  result.store(name, function(err, data){
+    res.send({ id : data._id });
   });
 });
 

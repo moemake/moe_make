@@ -26,11 +26,10 @@ router.post('/', function(req, res) {
   console.log(req.body);
   var entries = req.body.entries;
   var categoryId = req.body.categoryId;
-  console.log(entries);
-  console.log(categoryId);
-  console.log(req.sessionID);
+  var categoryName = req.body.categoryName;
   session.store(req.sessionID, { 
     categoryId: categoryId, 
+    categoryName: categoryName, 
     entries : entries, 
   }, function(err, data) {
     var categoryId = +categoryId;
@@ -42,7 +41,8 @@ router.post('/', function(req, res) {
     } else {
       nextCategoryId = categoryId + 1;
     }
-    res.send({ nextCategoryId : categoryId, isLast: isLast });
+    var isNextLast = nextCategory === MAX_CATEGORY_ID;
+    res.send({ nextCategoryId : categoryId, isLast: isLast, isNextLast : isNextLast});
   });
 });
 

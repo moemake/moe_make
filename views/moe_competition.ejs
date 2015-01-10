@@ -5,8 +5,7 @@
   </head>
   <body>
     <div class="container page-top">
-      <h1>比較してね(・ω<)</h1>
-      <h1><%= JSON.stringify(mymoe) %></h1>
+      <h1><span id="js-text-cat-name"></span>を比較してね(・ω<)</h1>
 
       <div id="js-block-left"></div>
       vs
@@ -14,6 +13,7 @@
 
     </div>
     <% include include/script %>
+    <script id="js-json-mymoe" type="text/json"><%- JSON.stringify(mymoe) %></script>
     <script src="js/moe_competition.js"></script>
   </body>
 </html>

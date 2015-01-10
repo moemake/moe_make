@@ -5,7 +5,7 @@
   var data = [
     {
       category: 1,
-      date: [
+      data: [
         {
           id: 1,
           name: 'ほげ'
@@ -26,10 +26,10 @@
     },
     {
       category: 2,
-      date: [
+      data: [
         {
           id: 1,
-          name: 'ほげ'
+          name: 'クソ'
         }
       ]
     },
@@ -39,7 +39,7 @@
     this.data = data;
     this.model = model;
     this.$left = $('#js-block-left');
-    this.$right = $('#js-block-rigitn');
+    this.$right = $('#js-block-right');
     this.addEvent();
     this.currentCategoryIdx = 0;
     this.result = [];
@@ -48,57 +48,79 @@
 
   Scene.prototype = {
     initialize: function() {
-      render();
+      this.render();
     },
 
     addEvent : function () {
-      this.$left.on('click', this.compare);
-      this.$right.on('click', this.compare);
-    };
+      this.$left.on('click', function(e){
+        this.onClick(e);
+      }.bind(this));
+
+      this.$right.on('click', function(e){
+        this.onClick(e);
+      }.bind(this));
+    },
+
+    onClick: function(e) {
+      this.compare(e);
+
+      // 選択肢が一つの場合はnextを呼んでカテゴリを進める
+      if (this.getCurrentCategory().data.length <= 1) {
+        this.goNextCategory();
+      }
+
+      this.render();
+    },
 
     // 配列を整形するところまでやるか
     compare: function(e) {
-      console.log('比較');
-
       // クリックした方に仕込まれてるIDは負けた方のID
-      var id = e.target('item-lost-id');
-      var currentCategory = this.getCurrentCategory().data;
+      var id = $(e.target).data('lost-id');
+      var data = this.getCurrentCategory().data;
       
       // 削除
       // TODO:いけてないので動いたら治す
-      this.getCurrentCategory().data = currentCategory().data.filter(function(v){
-        return v.id != id;
+      this.getCurrentCategory().data = data.filter(function(val){
+        return +val.id !== +id;
       });
-
-      if ((this.data.length-1) === this.currentCategoryIdx) {
-        end();
-      } else {
-        render();
-      }
-    },
-
-    beforeRender: function() {
-      // 選択肢が一つの場合はnextを呼んでカテゴリを進める
-      if (this.getCurrentCategory().data.length === 1) {
-        goNextCategory();
-      }
     },
 
     render: function() {
-      beforeRender();
-      var competitor = this.getCompatitor();
+      var competitor = this.getCompetitor();
 
-      $left.text(competitor[0]);
-      $right.text(competitor[1]);
+      this.$left
+        .text(competitor[0].name)
+        .data('lost-id', competitor[1].id);
+      this.$right
+        .text(competitor[1].name)
+        .data('lost-id', competitor[0].id);
     },
 
+    // 色々やらせすぎ
     goNextCategory: function() {
+      // データがひとつしかなかったら結界に保存
+      if (this.getCurrentCategory().data.length <= 1) {
+        this.result.push(this.getCurrentCategory().data[0]);
+      }
+
       this.currentCategoryIdx++;
+
+      if ((this.data.length) === this.currentCategoryIdx) {
+        this.end();
+        return;
+      }
+
+      // データがひとつしかなかったら一つ飛ばし
+      if (this.getCurrentCategory().data.length <= 1) {
+        // 結果に保存
+        this.result.push(this.getCurrentCategory().data[0]);
+        this.goNextCategory();
+      }
     },
 
     getCompetitor: function() {
       // ２つ以上あることを保証した上で実行
-      var suffled = _.suffle(this.getCurrentCategory().data());
+      var suffled = _.shuffle(this.getCurrentCategory().data);
       return [suffled[0], suffled[1]];
     },
 
@@ -107,18 +129,18 @@
     },
 
     end: function() {
-      console.log(this.result);
+      console.log('end', this.result);
       this.model.send(this.result);
     }
   };
 
-  var Modal = function () {};
+  var Model = function () {};
   Model.prototype = {
     send: function(data) {
       $.ajax({
         type:"post",
         url:"", // TODO
-        data:JSON.stringify({"id":selectedIds}),
+        data:JSON.stringify({"id":data}),
         contentType: 'application/json',
         dataType: "json",
         success: function(data) {

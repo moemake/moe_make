@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
 var session = require('../models/session');
+var MAX_CATEGORY_ID = 13;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -32,7 +33,16 @@ router.post('/', function(req, res) {
     categoryId: categoryId, 
     entries : entries, 
   }, function(err, data) {
-    res.send({ result : "ok" });
+    var categoryId = +categoryId;
+    var nextCategoryId = categoryId;
+
+    var isLast = false;
+    if (categoryId === MAX_CATEGORY_ID) {
+      isLast = true;
+    } else {
+      nextCategoryId = categoryId + 1;
+    }
+    res.send({ nextCategoryId : categoryId, isLast: isLast });
   });
 });
 

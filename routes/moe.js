@@ -19,5 +19,14 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/', function(req, res) {
+  console.log(req.body);
+  var selectedIds = req.body.id;
+  var categoryId = req.body.categoryId;
+  console.log(selectedIds);
+  console.log(categoryId);
+  res.send({ hoge : "hoge" });
+});
+
 module.exports = router;
 

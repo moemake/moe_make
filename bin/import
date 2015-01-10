@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+var CSV = require('comma-separated-values');
+var fs = require('fs');
+var db = require('monk')('localhost/moedb');
+var moes = db.get('moes');
+
+var csvPaths = [
+  'data/job1.csv',
+  'data/job2.csv',
+  'data/no_human.csv',
+  'data/attr.csv',
+  'data/charas.csv',
+  'data/tone.csv',
+  'data/hair.csv',
+  'data/body.csv',
+  'data/parts.csv',
+  'data/eyes.csv',
+  'data/looks.csv',
+  'data/cloth.csv',
+  'data/option.csv',
+];
+
+var categoryId = 1;
+var entryId = 1;
+csvPaths.forEach(function(path) {
+  var data = "" + fs.readFileSync(path);
+  var array = data.split("\n");
+  var categoryName = array.shift();
+  array.forEach(function(entry) {
+    moes.insert({
+      categoryId: categoryId,
+      categoryName: categoryName,
+      entryId: entryId,
+      entry: entry,
+    });
+    entryId++;
+  });
+  categoryId++;
+});
+
+db.close();

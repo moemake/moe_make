@@ -5,9 +5,15 @@
   </head>
   <body>
     <div class="container page-top">
-      <h1>最強萌えキャラメーカー</h1>
+      <h1>比較してね(・ω<)</h1>
+      <h1><%= JSON.stringify(mymoe) %></h1>
 
-    <% mymoe %>
+      <div id="js-block-left"></div>
+      vs
+      <div id="js-block-right"></div>
+
+    </div>
+    <% include include/script %>
+    <script src="js/moe_competition.js"></script>
   </body>
 </html>
-

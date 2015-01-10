@@ -6,6 +6,7 @@ var session = require('../models/session');
 router.get('/', function(req, res) {
   console.log(req.query);
   session.findBySessionId(req.sessionID, function(err, data){
+    if (data === null) return res.redirect("/moe");
     res.render('moe_competition', {mymoe : data.mymoe});
   });
 });

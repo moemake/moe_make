@@ -12,6 +12,7 @@ router.get('/', function(req, res) {
       { id: 3, name: '糸目' },
       { id: 4, name: '切れ長目' },
     ],  
+    isLast: false,
   });
 });
 

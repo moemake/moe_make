@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>最強萌えキャラメーカー</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>最強萌えキャラメーカー</h1>
+    <p><%= categoryName %></p>
+    <ul>
+    <% entries.forEach(function(item) { %>
+    <li><%= item.name %></li>
+    <% }) %>
+  </ul>
   </body>
 </html>

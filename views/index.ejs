@@ -16,6 +16,7 @@
       <section class="sec-selection row">
         <h2 class="h6">あなたの好きな<%= categoryName %>は?</h2>
         <div id="js-category-id" class="d-none"><%= categoryId %></div>
+        <div id="js-category-name" class="d-none"><%= categoryName %></div>
 
         <ul class="cf">
           <% entries.forEach(function(item) { %>
@@ -26,7 +27,7 @@
 
 
       <div id="js-btn-next">次へ</div>
-      <div id="js-btn-end">完了</div>
+      <div id="js-btn-end"><a href="/moe_competition">完了</a></div>
 
       <% include include/footer %>
     </div>

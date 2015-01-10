@@ -35,11 +35,17 @@
   var onClickNext = function() {
     console.log('next', entries);
     var categoryId = $('#js-category-id').text();
+    var categoryName = $('#js-category-name').text();
+    console.log(categoryName);
 
     $.ajax({
       type:"post",
       url:"/moe", // TODO
-      data:JSON.stringify({"entries":entries, "categoryId": categoryId}),
+      data:JSON.stringify({
+        "entries":entries, 
+        "categoryId": categoryId, 
+        "categoryName" : categoryName
+      }),
       contentType: 'application/json',
       dataType: "json",
       success: function(data) {

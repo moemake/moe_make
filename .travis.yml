@@ -1,0 +1,10 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: ebvtT2pRcjIIOrFOqpk05ov+r2tky3W6jljFWGRw2DhmvalIMUSxIwKkOTuiUWLn/D/JXpBNNtOzeI+KFBcEkl92KndfCjXIg0lMBRqwaWNclm/SiKstD5uzqFEdTrQIYXjZ959t0olM0megBwYlJUmTynm2WxqwT0LQbEP2hN4=
+  app:
+    master: oremoe
+  run:
+    - "npm run dropdb"
+    - "npm run indexdb"
+    - "npm run import"

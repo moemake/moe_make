@@ -1,6 +1,8 @@
+"use strict";
 var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
+var session = require('../models/session');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -21,11 +23,17 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   console.log(req.body);
-  var selectedIds = req.body.id;
+  var entries = req.body.entries;
   var categoryId = req.body.categoryId;
-  console.log(selectedIds);
+  console.log(entries);
   console.log(categoryId);
-  res.send({ hoge : "hoge" });
+  console.log(req.sessionID);
+  session.store(req.sessionID, { 
+    categoryId: categoryId, 
+    entries : entries, 
+  }, function(err, data) {
+    res.send({ result : "ok" });
+  });
 });
 
 module.exports = router;

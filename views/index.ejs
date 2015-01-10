@@ -11,7 +11,7 @@
 
       <ul>
         <% entries.forEach(function(item) { %>
-        <li class="js-item" data-item-id="<%= item.entryId %>"><%= item.entry %></li>
+        <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>"><%= item.entry %></li>
         <% }) %>
       </ul>
 

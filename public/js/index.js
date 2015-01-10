@@ -1,44 +1,45 @@
 // 気が向いたらちゃんと書く＼(^o^)／
 ;(function() {
-  var selectedIds = [];
+  var entries = [];
 
   var onClickItem = function(e) {
     var $target = $(e.target);
     var id = $target.data('item-id');
+    var entry = $target.data('item-entry');
 
     if(!$target.data('is-selected')) {
-      select($target, id);
+      select($target, id, entry);
     } else {
       unselect($target, id);
     }
   };
 
-  var select = function ($target, id) {
+  var select = function ($target, id, name) {
     $target
       .addClass('is-selected')
       .data('is-selected', true);
-    selectedIds.push(id);
+    entries.push( { entryId : id, entryName: name });
   };
 
   var unselect = function ($target, id) {
     $target
       .removeClass('is-selected')
       .data('is-selected', false);
-    selectedIds.some(function(val, i){
-      if (val === id) {
-        selectedIds.splice(i,1);    
+    entries.some(function(val, i){
+      if (val.id === id) {
+        entries.splice(i,1);    
       }
     });
   };
 
   var onClickNext = function() {
-    console.log('next', selectedIds);
+    console.log('next', entries);
     var categoryId = $('#js-category-id').text();
 
     $.ajax({
       type:"post",
       url:"/moe", // TODO
-      data:JSON.stringify({"id":selectedIds, "categoryId": categoryId}),
+      data:JSON.stringify({"entries":entries, "categoryId": categoryId}),
       contentType: 'application/json',
       dataType: "json",
       success: function(data) {

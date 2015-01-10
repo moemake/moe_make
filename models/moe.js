@@ -18,9 +18,10 @@ Moe.prototype.findByCategoryId = function(categoryId, cb){
           categoryName: first.categoryName,
           entries: data
         };
-        cb(null, result);
         db.close();
+        cb(null, result);
       });
 };
+
 
 module.exports = new Moe();

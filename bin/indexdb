@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-var db = require('monk')('localhost/moedb');
+var config = require('../config');
+var db = require('monk')(config().mongoUrl);
 var moes = db.get('moes');
 var session = db.get('session');
 moes.index('categoryId', {unique: true});

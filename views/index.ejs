@@ -5,18 +5,30 @@
   </head>
   <body>
     <div class="container page-top">
-      <h1>最強萌えキャラメーカー</h1>
-      <p><%= categoryName %></p>
-      <div id="js-category-id"><%= categoryId %></div>
+      <header class="row header">
+          <h1 class="h6">最強萌えキャラメーカー</h1>
+      </header>
 
-      <ul>
-        <% entries.forEach(function(item) { %>
-        <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>"><%= item.entry %></li>
-        <% }) %>
-      </ul>
+      <section class="sec-progress">
+         TODO:ここに進捗を出す
+      </section>
+
+      <section class="sec-selection row">
+        <h2 class="h6">あなたの好きな<%= categoryName %>は?</h2>
+        <div id="js-category-id" class="d-none"><%= categoryId %></div>
+
+        <ul>
+          <% entries.forEach(function(item) { %>
+          <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>"><%= item.entry %></li>
+          <% }) %>
+        </ul>
+      </section>
+
 
       <div id="js-btn-next">次へ</div>
       <div id="js-btn-end">完了</div>
+
+      <% include include/footer %>
     </div>
     <% include include/script %>
     <script src="js/index.js"></script>

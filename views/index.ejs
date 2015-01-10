@@ -17,7 +17,7 @@
         <h2 class="h6">あなたの好きな<%= categoryName %>は?</h2>
         <div id="js-category-id" class="d-none"><%= categoryId %></div>
 
-        <ul>
+        <ul class="cf">
           <% entries.forEach(function(item) { %>
           <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>"><%= item.entry %></li>
           <% }) %>

@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+var db = require('monk')('localhost/moedb');
+var moes = db.get('moes');
+moes.drop();
+
+db.close();

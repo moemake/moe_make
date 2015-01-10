@@ -23,10 +23,13 @@ var csvPaths = [
 var categoryId = 1;
 var entryId = 1;
 csvPaths.forEach(function(path) {
+  console.log(path);
+  console.log(categoryId);
   var data = "" + fs.readFileSync(path);
   var array = data.split("\n");
   var categoryName = array.shift();
   array.forEach(function(entry) {
+    if (entry === '') return;
     moes.insert({
       categoryId: categoryId,
       categoryName: categoryName,

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-var CSV = require('comma-separated-values');
+var config = require('../config');
 var fs = require('fs');
-var db = require('monk')('localhost/moedb');
+var db = require('monk')(config().mongoUrl);
 var moes = db.get('moes');
 
 var csvPaths = [

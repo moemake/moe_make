@@ -1,9 +1,10 @@
 var monk = require('monk');
+var config = require('../config');
 
 var Moe = function(){ };
 
 Moe.prototype.findByCategoryId = function(categoryId, cb){
-  var db = monk('localhost/moedb');
+  var db = monk(config().mongoUrl);
   var moes = db.get('moes');
   console.log(categoryId);
   moes.find({categoryId: categoryId})

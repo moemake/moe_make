@@ -2,7 +2,9 @@
 var db = require('monk')('localhost/moedb');
 var moes = db.get('moes');
 var session = db.get('session');
+var result = db.get('result');
 moes.drop();
 session.drop();
+result.drop();
 
 db.close();

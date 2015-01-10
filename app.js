@@ -11,6 +11,7 @@ var uuid = require('node-uuid');
 var routes = require('./routes/index');
 var moe = require('./routes/moe');
 var moeCompetition = require('./routes/moeCompetition');
+var moeResult = require('./routes/moeResult');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/moe', moe);
 app.use('/moe_competition', moeCompetition);
+app.use('/moe_result', moeResult);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

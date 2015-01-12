@@ -9,26 +9,30 @@
           <h1 class="h6">最強萌えキャラメーカー</h1>
       </header>
 
-      <section class="sec-progress">
+      <section class="sec-progress m-b-m">
          TODO:ここに進捗を出す
       </section>
 
-      <section class="sec-selection row">
-        <h2 class="h6">あなたの好きな<%= categoryName %>は?</h2>
+      <section class="sec-selection m-b-l">
+        <h2 class="m-b-l title-type1">あなたの好きな<%= categoryName %>は?</h2>
         <div id="js-category-id" class="d-none"><%= categoryId %></div>
         <div id="js-category-name" class="d-none"><%= categoryName %></div>
-
-        <ul class="cf">
-          <% entries.forEach(function(item) { %>
-          <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>"><%= item.entry %></li>
-          <% }) %>
-        </ul>
+        <div class="list">
+          <ul class="list cf">
+            <% entries.forEach(function(item) { %>
+            <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>">
+              <span class="check"></span>
+              <%= item.entry %>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
       </section>
 
       <% if (isLast) { %>
-      <div id="js-btn-next" data-is-last="1">完了</div>
+      <div id="js-btn-next" class="btn-type1" data-is-last="1">完了</div>
       <% } else { %>
-      <div id="js-btn-next">次へ</div>
+      <div id="js-btn-next" class="btn-type1">次へ</div>
       <% } %>
 
       <% include include/footer %>

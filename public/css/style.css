@@ -1,40 +1,94 @@
 /* line 2, ../../src/scss/style.scss */
 .header {
+  display: -webkit-box;
+  display: box;
+  height: 36px;
   padding: 0 10px;
   background-color: #fe5e97;
   color: #FFF;
+  -webkit-box-align: center;
+  box-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 
-/* line 9, ../../src/scss/style.scss */
-.sec-selection {
-  padding: 0 8px;
-  font-size: 1.2rem;
+/* line 15, ../../src/scss/style.scss */
+.footer {
+  border-top: 1px solid #fe5e97;
+  padding-top: 5px;
+  margin-top: 50px;
 }
-/* line 13, ../../src/scss/style.scss */
-.sec-selection li {
-  color: #FFF;
-  width: 50%;
-  background-color: #fe5e97;
-  float: left;
-  margin-bottom: 5px;
+
+/* line 21, ../../src/scss/style.scss */
+.title-type1 {
+  font-weight: bold;
+  border-bottom: 3px solid #fe5e97;
+  font-size: 2rem;
+  padding: 5px 8px;
+}
+
+/* line 28, ../../src/scss/style.scss */
+.btn-type1 {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  width: 215px;
+  padding: 10px 0;
+  margin: 0 auto;
   text-align: center;
   font-weight: bold;
-  line-height: 1.8;
-}
-/* line 23, ../../src/scss/style.scss */
-.sec-selection li.is-selected {
-  background-color: red;
+  color: #fff;
+  text-decoration: none;
+  background-color: #fe5e97;
+  cursor: pointer;
 }
 
-/* line 30, ../../src/scss/style.scss */
-.sec-competition {
+/* line 53, ../../src/scss/style.scss */
+.sec-selection .list {
+  padding: 0 8px;
+}
+/* line 57, ../../src/scss/style.scss */
+.sec-selection li {
+  font-size: 1.6rem;
+  width: 50%;
+  float: left;
+  margin-bottom: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+/* line 65, ../../src/scss/style.scss */
+.sec-selection li .check {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #fe5e97;
+  border-radius: 3px;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+/* line 76, ../../src/scss/style.scss */
+.sec-selection li.is-selected .check {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIGZpbGw9IndoaXRlIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMS42NTIsMy4yMTFjLTAuMjkzLTAuMjk1LTAuNzctMC4yOTUtMS4wNjEsMEw5LjQxLDE0LjM0ICBjLTAuMjkzLDAuMjk3LTAuNzcxLDAuMjk3LTEuMDYyLDBMMy40NDksOS4zNTFDMy4zMDQsOS4yMDMsMy4xMTQsOS4xMywyLjkyMyw5LjEyOUMyLjczLDkuMTI4LDIuNTM0LDkuMjAxLDIuMzg3LDkuMzUxICBsLTIuMTY1LDEuOTQ2QzAuMDc4LDExLjQ0NSwwLDExLjYzLDAsMTEuODIzYzAsMC4xOTQsMC4wNzgsMC4zOTcsMC4yMjMsMC41NDRsNC45NCw1LjE4NGMwLjI5MiwwLjI5NiwwLjc3MSwwLjc3NiwxLjA2MiwxLjA3ICBsMi4xMjQsMi4xNDFjMC4yOTIsMC4yOTMsMC43NjksMC4yOTMsMS4wNjIsMGwxNC4zNjYtMTQuMzRjMC4yOTMtMC4yOTQsMC4yOTMtMC43NzcsMC0xLjA3MUwyMS42NTIsMy4yMTF6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L2c+PC9zdmc+);
+}
+
+/* line 87, ../../src/scss/style.scss */
+.sec-competition .area-competition {
   display: -webkit-box;
   display: box;
   -webkit-box-pack: justify;
   box-pack: justify;
-  width: 100%;
+  width: 300px;
+  margin: 0 auto;
 }
-/* line 37, ../../src/scss/style.scss */
+/* line 96, ../../src/scss/style.scss */
 .sec-competition .block-left,
 .sec-competition .block-right {
   display: -webkit-box;
@@ -43,21 +97,22 @@
   box-align: center;
   -webkit-box-pack: center;
   box-pack: center;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   text-align: center;
   background-color: #fe5e97;
   color: #FFF;
+  font-weight: bold;
+  font-size: 1.6rem;
 }
-/* line 52, ../../src/scss/style.scss */
+/* line 113, ../../src/scss/style.scss */
 .sec-competition .vs {
   display: -webkit-box;
   display: box;
-  width: 20px;
-  height: 90px;
+  height: 120px;
   color: #fe5e97;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3rem;
   -webkit-box-align: center;
   box-align: center;
   -webkit-box-pack: center;

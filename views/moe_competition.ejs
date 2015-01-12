@@ -5,12 +5,21 @@
   </head>
   <body>
     <div class="container page-top">
-      <h1><span id="js-text-cat-name"></span>を比較してね(・ω<)</h1>
+      <header class="row header m-b-m">
+          <h1 class="h6">最強萌えキャラメーカー</h1>
+      </header>
 
-      <div id="js-block-left"></div>
-      vs
-      <div id="js-block-right"></div>
+      <section class="sec-progress m-b-m">
+        <h1><span id="js-text-cat-name"></span>を比較してね(・ω<)</h1>
+      </section>
 
+      <section class="sec-competition">
+        <div id="js-block-left" class="block-left"></div>
+        <div class="vs">vs</div>
+        <div id="js-block-right" class="block-left"></div>
+      </section>
+
+      <% include include/footer %>
     </div>
     <% include include/script %>
     <script id="js-json-mymoe" type="text/json"><%- JSON.stringify(mymoe) %></script>

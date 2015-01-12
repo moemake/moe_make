@@ -32,11 +32,11 @@
     });
   };
 
-  var onClickNext = function() {
-    console.log('next', entries);
+  var onClickNext = function(e) {
     var categoryId = $('#js-category-id').text();
     var categoryName = $('#js-category-name').text();
-    console.log(categoryName);
+    var isLast = $(e.target).data('is-last') ? true : false;
+    console.log(isLast);
 
     $.ajax({
       type:"post",
@@ -49,8 +49,7 @@
       contentType: 'application/json',
       dataType: "json",
       success: function(data) {
-        // TODO:リダイレクト
-        // location.href = '';
+        location.href = isLast ? '/moe_competition' : '/moe?categoryId=' + data.nextCategoryId;
       },
       error: function() {
           alert('(・＊・)アナル〜');
@@ -63,8 +62,5 @@
   };
 
   $('.js-item').on('click', onClickItem);
-
   $('#js-btn-next').on('click', onClickNext);
-
-  $('#js-btn-end').on('click', onClickEnd);
 })();

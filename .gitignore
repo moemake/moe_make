@@ -5,3 +5,5 @@ node_modules
 *.DS_Store
 *.swp
 *.out
+.sass-cache
+npm-debug.log

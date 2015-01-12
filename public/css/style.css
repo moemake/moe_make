@@ -1,16 +1,16 @@
-/* line 1, ../../src/scss/style.scss */
+/* line 2, ../../src/scss/style.scss */
 .header {
   padding: 0 10px;
   background-color: #fe5e97;
   color: #FFF;
 }
 
-/* line 7, ../../src/scss/style.scss */
+/* line 9, ../../src/scss/style.scss */
 .sec-selection {
   padding: 0 8px;
   font-size: 1.2rem;
 }
-/* line 11, ../../src/scss/style.scss */
+/* line 13, ../../src/scss/style.scss */
 .sec-selection li {
   color: #FFF;
   width: 50%;
@@ -21,7 +21,45 @@
   font-weight: bold;
   line-height: 1.8;
 }
-/* line 21, ../../src/scss/style.scss */
+/* line 23, ../../src/scss/style.scss */
 .sec-selection li.is-selected {
   background-color: red;
+}
+
+/* line 30, ../../src/scss/style.scss */
+.sec-competition {
+  display: -webkit-box;
+  display: box;
+  -webkit-box-pack: justify;
+  box-pack: justify;
+  width: 100%;
+}
+/* line 37, ../../src/scss/style.scss */
+.sec-competition .block-left,
+.sec-competition .block-right {
+  display: -webkit-box;
+  display: box;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  background-color: #fe5e97;
+  color: #FFF;
+}
+/* line 52, ../../src/scss/style.scss */
+.sec-competition .vs {
+  display: -webkit-box;
+  display: box;
+  width: 20px;
+  height: 90px;
+  color: #fe5e97;
+  font-weight: bold;
+  font-size: 2rem;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
 }

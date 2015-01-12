@@ -38,11 +38,17 @@ Session.prototype.store = function(sessionId, entries, cb) {
         } else {
           var mymoe = data.mymoe;
           mymoe.push(entries);
-          session.update({ sessionId: sessionId, mymoe : mymoe }).on('success', function(data) {
+          console.log('二回目以降', mymoe);
+          session.update(
+            {sessionId: sessionId},
+            {$set : {mymoe : mymoe}}
+          ).on('success', function(data) {
             db.close();
+            console.log('二回目以降成功');
             cb(null, data);
           }).on('error', function(err) {
             db.close();
+            console.log('二回目以降失敗');
             cb(err);
           });
         }

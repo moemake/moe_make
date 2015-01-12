@@ -3,14 +3,12 @@ var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
 var session = require('../models/session');
-var MAX_CATEGORY_ID = 13;
+var MAX_CATEGORY_ID = 3;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  console.log(req.query);
+  var categoryId = +req.query.categoryId || 1;
 
-  var category = +req.query.category;
-  var categoryId = category || 1;
   moe.findByCategoryId(categoryId, function(err, data){
     if (err === 'Not found') {
       res.status(404).send('Not Found');
@@ -18,31 +16,35 @@ router.get('/', function(req, res) {
     if (err) {
       res.status(500).send(err);
     }
-    res.render('index', data);
+
+    var isLast = false;
+    if (categoryId === MAX_CATEGORY_ID) {
+      isLast = true;
+    }
+
+    res.render('index', { 
+      entries: data.entries,
+      categoryName: data.categoryName,
+      categoryId:   data.categoryId,
+      isLast:       isLast
+    });
   });
 });
 
 router.post('/', function(req, res) {
-  console.log(req.body);
   var entries = req.body.entries;
   var categoryId = req.body.categoryId;
+  var categoryIdChan = req.body.categoryId;
   var categoryName = req.body.categoryName;
   session.store(req.sessionID, { 
     categoryId: categoryId, 
     categoryName: categoryName, 
     entries : entries, 
   }, function(err, data) {
-    var categoryId = +categoryId;
-    var nextCategoryId = categoryId;
-
-    var isLast = false;
-    if (categoryId === MAX_CATEGORY_ID) {
-      isLast = true;
-    } else {
-      nextCategoryId = categoryId + 1;
-    }
-    var isNextLast = nextCategoryId === MAX_CATEGORY_ID;
-    res.send({ nextCategoryId : categoryId, isLast: isLast, isNextLast : isNextLast});
+    // NOTE:あまり調べてないけどこの名前空間だとcategoryIdが使えない？？
+    var categoryId = +req.body.categoryId;
+    var nextCategoryId = categoryId + 1;
+    res.send({ nextCategoryId : nextCategoryId});
   });
 });
 

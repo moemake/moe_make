@@ -1,9 +1,11 @@
+// 共通っぽいやつ
 .header {
   padding: 0 10px;
   background-color: #fe5e97;
   color: #FFF;
 }
 
+// indexページ
 .sec-selection {
   padding: 0 8px;
   font-size: 1.2rem;
@@ -21,5 +23,43 @@
     &.is-selected {
       background-color: red;
     }
+  }
+}
+
+// moe_competionページ
+.sec-competition {
+  display: -webkit-box;
+  display: box;
+  -webkit-box-pack: justify;
+  box-pack: justify;
+  width: 100%;
+
+  .block-left,
+  .block-right {
+    display: -webkit-box;
+    display: box;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-box-pack: center;
+    box-pack: center;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    background-color: #fe5e97;
+    color: #FFF;
+  }
+
+  .vs {
+    display: -webkit-box;
+    display: box;
+    width: 20px;
+    height: 90px;
+    color: #fe5e97;
+    font-weight: bold;
+    font-size: 2rem;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-box-pack: center;
+    box-pack: center;
   }
 }

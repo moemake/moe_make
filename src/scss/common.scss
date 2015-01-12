@@ -105,6 +105,11 @@ mark {background-color: transparent;}
   box-align: end !important;
 }
 
+.box-align-j {
+  -webkit-box-align: justify !important;
+  box-align: justify !important;
+}
+
 /* shadow */
 .box-shadow-none {
   -webkit-box-shadow: none !important;

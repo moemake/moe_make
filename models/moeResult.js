@@ -17,18 +17,48 @@ Result.prototype.findById = function(id, cb) {
          });
 };
 
-Result.prototype.store = function(attrString, cb) {
+Result.prototype.findBySessionId = function(sessionId, cb) {
   var db = monk(config().mongoUrl);
   var result = db.get('result');
-  result.insert({
-    attr : attrString
-  }).on('success', function(data) {
-    db.close();
-    cb(null, data);
-  }).on('error', function(err) {
-    db.close();
-    cb(err);
-  });
+  result.findOne({sessionId: sessionId})
+         .on('success', function(data){
+            db.close();
+            cb(null, data);
+         })
+         .on('error', function(err){
+            db.close();
+            cb(err);
+         });
+};
+
+Result.prototype.store = function(sessionId, storedData, cb) {
+  var db = monk(config().mongoUrl);
+  var result = db.get('result');
+  result.findOne({sessionId: sessionId}).on('success', function(data){
+    if (!data) {
+      result.insert({
+        sessionId: sessionId,
+        result: storedData
+      }).on('success', function(data) {
+        db.close();
+        cb(null, data);
+      }).on('error', function(err) {
+        db.close();
+        cb(err);
+      });
+    } else {
+      result.update(
+        {sessionId: sessionId}, 
+        {sessionId: sessionId, result: storedData}
+      ).on('success', function(data) {
+        db.close();
+        cb(null, data);
+      }).on('error', function(err) {
+        db.close();
+        cb(err);
+      });
+    }
+  })
 };
 
 module.exports = new Result();

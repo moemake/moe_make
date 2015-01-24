@@ -5,7 +5,6 @@ var result = require('../models/moeResult');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  console.log(req.query);
   session.findBySessionId(req.sessionID, function(err, data){
     if (data === null) return res.redirect("/moe");
     res.render('moe_competition', {mymoe : data.mymoe});
@@ -13,10 +12,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  var name = req.body.id[0].entryName;
-  //var names = req.body.name.join(" ");
-  result.store(name, function(err, data){
-    res.send({ id : data._id });
+ // todo if (!req.body.id) res.redirect("/error");
+  var names = req.body.id.map(function(entry){
+    return entry.entryName;
+  });
+  result.store(req.sessionID, req.body.id, function(err, data){
+    console.log(data._id);
+    res.send({id: data._id, result: names});
   });
 });
 

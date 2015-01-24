@@ -3,7 +3,7 @@
   var entries = [];
 
   var onClickItem = function(e) {
-    var $target = $(e.target);
+    var $target = $(e.currentTarget);
     var id = $target.data('item-id');
     var entry = $target.data('item-entry');
 

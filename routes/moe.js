@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
 var session = require('../models/session');
-var MAX_CATEGORY_ID = 15;
+var MAX_CATEGORY_ID = 2;
 
 /* GET home page. */
 router.get('/', function(req, res) {

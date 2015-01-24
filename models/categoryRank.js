@@ -61,7 +61,10 @@ CategoryRank.prototype.increments = function(categories, cb){
       category.entryName, redis.print);
   });
 
-  multi.exec(cb);
+  multi.exec(function(err, data){
+    client.quit();
+    cb(err, data);
+  });
 };
 
 
@@ -79,7 +82,10 @@ CategoryRank.prototype.getRanks = function(categories, cb){
       category.entryName, redis.print);
   });
 
-  multi.exec(cb);
+  multi.exec(function(err, data){
+    client.quit();
+    cb(err, data);
+  });
 };
 
 module.exports = new CategoryRank();

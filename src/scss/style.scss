@@ -91,6 +91,13 @@ $pink: #fe5e97;
 }
 
 .sec-selection {
+  h1 {
+    .category {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+
   .list {
     padding: 0 8px;
   }

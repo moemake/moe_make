@@ -6,9 +6,10 @@ var CategoryRank = function(){};
 
 function createClient() {
   var client;
-  if(config.redisUri) {
-    client = redis.createClient(config.redisUri.port, config.redisUri.hostname);
-    client.auth(config.redisUri.auth.split(":")[1]);
+  if(config.redisUrl) {
+    var redisUrl = config.redisUrl;
+    client = redis.createClient(redisUrl.port, redisUrl.hostname);
+    client.auth(redisUrl.auth.split(":")[1]);
   } else {
     client = redis.createClient();
   }

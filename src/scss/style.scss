@@ -69,6 +69,27 @@ $pink: #fe5e97;
 }
 
 // indexページ
+.sec-progress {
+  width: 70%;
+  margin: 0 auto;
+
+  .wrap-progress {
+    @include border-radius(10px);
+    width: 100%;
+    height: 20px;
+    border: 1px solid #D95081;
+    background-color: #EDA6BF;
+  }
+
+  .bar {
+    @include border-radius(10px);
+    width: 50%;
+    height: 100%;
+    background-color: $pink;
+    text-align: right;
+  }
+}
+
 .sec-selection {
   .list {
     padding: 0 8px;
@@ -151,7 +172,7 @@ $pink: #fe5e97;
   position: absolute;
   left: 50%;
   width: 300px;
-  margin-left: -150px;
+  margin-left: -163px;
   padding: 10px;
   background-color: #FFF;
   border: 3px solid $pink;

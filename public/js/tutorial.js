@@ -41,10 +41,15 @@
     },
 
     handleOpen: function() {
-      // TODO: localstrage
-      if (0) return;
+      // TODO: 丁寧にハンドルする
+      if (window.localStorage === undefined) return;
 
-      this.open();
+      var is_tutorial_finished = localStorage.getItem("is_tutorial_finished");
+      // TODO: リリース前に治す
+      // if (is_tutorial_finished) return;
+
+      // this.open();
+      localStorage.setItem("is_tutorial_finished", 1);
     },
 
     next: function() {

@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% var title = tweetStr + " | オレモエ"; %>
     <% include include/header %>
+
+    <% /* OGP関連 */ %>
+    <meta property="og:site_name" content="オレモエ">
+    <meta property="og:url" content="<%- url %>">
+    <meta property="og:title" content="私は<%- tweetStr %>キャラが好き。 | オレモエ">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://oremoe.herokuapp.com/img/card.png">
+    <meta property="og:description" content="私は<%- tweetStr %>キャラが好き。">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="<%- url %>">
+    <meta name="twitter:title" content="私は<%- tweetStr %>キャラが好き。 | オレモエ">
+    <meta name="twitter:description" content="私は<%- tweetStr %>キャラが好き。">
+    <meta name="twitter:image" content="http://oremoe.herokuapp.com/img/card.png">
   </head>
   <body>
     <div class="container page-top">

@@ -13,7 +13,9 @@ router.get('/:result/*', function(req, res) {
       return '<span class="txt-bold txt-xxl">' + entry.entryName + '</span>';
     }).join("、");
     console.log(names);
-    res.render('moe_result', {  names: names });
+    // TODO: ドメインを取ったらなおす
+    var url = "http://oremoe.herokuapp.com/" + req.params.result + "/"; 
+    res.render('moe_result', { names: names, url: url});
   });
 });
 

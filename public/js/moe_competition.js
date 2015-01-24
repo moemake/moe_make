@@ -77,8 +77,11 @@
       // データがひとつしかなかったら結界に保存
       if (this.getCurrentCategory().entries.length <= 1) {
         var categoryResult = this.getCurrentCategory().entries[0];
-        categoryResult.categoryName = this.getCurrentCategory().categoryName;
-        this.result.push(categoryResult);
+        // 何もせんたくされないことがある
+        if (categoryResult !== undefined) {
+          categoryResult.categoryName = this.getCurrentCategory().categoryName;
+          this.result.push(categoryResult);
+        }
       }
 
       this.currentCategoryIdx++;

@@ -197,12 +197,13 @@ $pink: #fe5e97;
 }
 
 .sec-graph {
+  margin-bottom: 70px;
 
   .wrap-graph {
     position: relative;
     width: 70%;
     height: 30px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     background-color: #EAC0CF;
     background: -moz-linear-gradient(left, #ef2fbf 0%, #591caf 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ef2fbf), color-stop(100%,#591caf)); 
@@ -237,6 +238,12 @@ $pink: #fe5e97;
   .txt-minor {
     right: 0px;
     color: #591caf;
+  }
+
+  .hitokoto {
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-align: center;
   }
 }
 

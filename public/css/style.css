@@ -197,12 +197,16 @@
   line-height: 1.6;
 }
 
-/* line 201, ../../src/scss/style.scss */
+/* line 199, ../../src/scss/style.scss */
+.sec-graph {
+  margin-bottom: 70px;
+}
+/* line 202, ../../src/scss/style.scss */
 .sec-graph .wrap-graph {
   position: relative;
   width: 70%;
   height: 30px;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   background-color: #EAC0CF;
   background: -moz-linear-gradient(left, #ef2fbf 0%, #591caf 100%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ef2fbf), color-stop(100%, #591caf));
@@ -212,7 +216,7 @@
   background: linear-gradient(to right, #ef2fbf 0%, #591caf 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef2fbf', endColorstr='#591caf',GradientType=1 );
 }
-/* line 216, ../../src/scss/style.scss */
+/* line 217, ../../src/scss/style.scss */
 .sec-graph .pointer {
   position: relative;
   top: -5px;
@@ -222,29 +226,35 @@
   border-left: 4px solid #333;
   margin-left: -2px;
 }
-/* line 226, ../../src/scss/style.scss */
+/* line 227, ../../src/scss/style.scss */
 .sec-graph .label {
   position: absolute;
   bottom: -20px;
   font-weight: bold;
 }
-/* line 232, ../../src/scss/style.scss */
+/* line 233, ../../src/scss/style.scss */
 .sec-graph .txt-mejor {
   left: 0px;
   color: #ef2fbf;
 }
-/* line 237, ../../src/scss/style.scss */
+/* line 238, ../../src/scss/style.scss */
 .sec-graph .txt-minor {
   right: 0px;
   color: #591caf;
 }
+/* line 243, ../../src/scss/style.scss */
+.sec-graph .hitokoto {
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center;
+}
 
-/* line 244, ../../src/scss/style.scss */
+/* line 251, ../../src/scss/style.scss */
 .page-err h1 {
   font-size: 3rem;
 }
 
-/* line 250, ../../src/scss/style.scss */
+/* line 257, ../../src/scss/style.scss */
 .tutorial {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -258,20 +268,20 @@
   background-color: #FFF;
   border: 3px solid #fe5e97;
 }
-/* line 262, ../../src/scss/style.scss */
+/* line 269, ../../src/scss/style.scss */
 .tutorial .section1 .logo {
   width: 100%;
   height: auto;
 }
-/* line 269, ../../src/scss/style.scss */
+/* line 276, ../../src/scss/style.scss */
 .tutorial .section2 header {
   border-bottom: 2px dotted #fe5e97;
 }
-/* line 273, ../../src/scss/style.scss */
+/* line 280, ../../src/scss/style.scss */
 .tutorial .section2 li {
   margin-bottom: 10px;
 }
-/* line 275, ../../src/scss/style.scss */
+/* line 282, ../../src/scss/style.scss */
 .tutorial .section2 li:before {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -286,15 +296,15 @@
   font-weight: bold;
   margin-right: 5px;
 }
-/* line 287, ../../src/scss/style.scss */
+/* line 294, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(1):before {
   content: "1";
 }
-/* line 290, ../../src/scss/style.scss */
+/* line 297, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(2):before {
   content: "2";
 }
-/* line 293, ../../src/scss/style.scss */
+/* line 300, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(3):before {
   content: "3";
 }

@@ -116,8 +116,7 @@
         contentType: 'application/json',
         dataType: "json",
         success: function(data) {
-          console.log(data);
-          alert('成功');
+          location.href = "/moe_result?id=" + data.id;
         },
         error: function() {
         }

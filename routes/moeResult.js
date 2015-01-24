@@ -6,7 +6,7 @@ var result = require('../models/moeResult');
 router.get('/', function(req, res) {
   console.log(req.query.id);
   result.findById(req.query.id, function(err, data){
-    if (data === null) return res.redirect("/moe");
+    console.log(data);
     res.render('moe_result', data);
   });
 });

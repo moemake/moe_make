@@ -1,3 +1,17 @@
+@import "compass/css3/border-radius";
+
+// 変数
+$pink: #fe5e97;
+
+// jsで使うやつ
+.js-show {
+  display: block;
+}
+
+.js-hide {
+  display: none;
+}
+
 // 共通っぽいやつ
 .header {
   display: -webkit-box;
@@ -26,11 +40,7 @@
 }
 
 .btn-type1 {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px;
+  @include border-radius(2px);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -46,6 +56,16 @@
   text-decoration: none;
   background-color:#fe5e97;
   cursor: pointer;
+}
+
+.overlay {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 // indexページ
@@ -121,5 +141,56 @@
     box-align: center;
     -webkit-box-pack: center;
     box-pack: center;
+  }
+}
+
+// チュートリ
+.tutorial {
+  @include border-radius(4px);
+  z-index: 101;
+  position: absolute;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  padding: 10px;
+  background-color: #FFF;
+  border: 3px solid $pink;
+
+  .section1 {
+    .logo {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .section2 {
+    header  {
+      border-bottom: 2px dotted $pink;
+    }
+    
+    li {
+      margin-bottom: 10px;
+      &:before {
+        @include border-radius(10px);
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        background-color: $pink;
+        text-align: center;
+        color: #FFF;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      &:nth-child(1):before {
+        content: "1";
+      }
+      &:nth-child(2):before {
+        content: "2";
+      }
+      &:nth-child(3):before {
+        content: "3";
+      }
+    }
   }
 }

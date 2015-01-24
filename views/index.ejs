@@ -10,7 +10,7 @@
       </header>
 
       <div class="main-img align-c">
-        <img src="/img/logo.png" alt="" width="308" height="169">
+        <img src="/img/logo.png" alt="" width="324" height="129">
       </div>
 
       <section class="sec-progress m-b-m">
@@ -18,7 +18,7 @@
       </section>
 
       <section class="sec-selection m-b-l">
-        <h2 class="m-b-l title-type1">あなたの好きな<%= categoryName %>は?</h2>
+        <h1 class="m-b-l title-type1">あなたの好きな<%= categoryName %>は?</h1>
         <div id="js-category-id" class="d-none"><%= categoryId %></div>
         <div id="js-category-name" class="d-none"><%= categoryName %></div>
         <div class="list">
@@ -39,9 +39,33 @@
       <div id="js-btn-next" class="btn-type1">次へ</div>
       <% } %>
 
+      <section id="js-tutorial" class="tutorial js-hide">
+        <section id="js-tutorial-section1" class="section1">
+          <h1 class="align-c">
+            <img class="logo" src="/img/logo.png" alt="">
+          </h1>
+          <p class="align-c m-b-l">※やや腐向け・ややR18</p>
+          <div id="js-btn-tutorial-next" class="btn-type1">いいよ</div>
+        </section>
+        <section id="js-tutorial-section2" class="js-hide section2">
+          <header class="m-b-l">
+            <h1 class="txt-l">説明<span class="txt-s">- 俺的最強萌えキャラをつくるよ -</span></h1>
+          </header>
+          <ol class="m-b-l">
+            <li>えらんで</li>
+            <li>くらべて</li>
+            <li>結果をみよう</li>
+          </ol>
+          <div id="js-btn-tutorial-end" class="btn-type1">おっぱじめる</div>
+        </section>
+      </section>
+
       <% include include/footer %>
     </div>
+    <!-- /.container END -->
     <% include include/script %>
+    <div id="js-overlay" class="overlay js-hide"></div>
+    <script src="js/modal.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>

@@ -37,7 +37,18 @@ Session.prototype.store = function(sessionId, entries, cb) {
           });
         } else {
           var mymoe = data.mymoe;
-          mymoe.push(entries);
+          console.log("mymoe ", mymoe);
+          var found = false;
+          for(var i=0; i<mymoe.length; i++){
+            if (mymoe[i].categoryId === entries.categoryId) {
+              found = true;
+              mymoe[i] = entries;
+            }
+          }
+          if (!found) {
+            mymoe.push(entries);
+          }
+          console.log("entries", entries);
           console.log('二回目以降', mymoe);
           session.update(
             {sessionId: sessionId},

@@ -46,16 +46,19 @@
         <p class="hitokoto"><%- aori %></p>
       </section>
 
+      <% if (0) { %>
       <div class="align-c m-b-l">
         <a href="/">
           <img src="/img/next.png" alt="" width="144" height="49">
         </a>
         <p class="txt-s">ランキングへ</p>
       </div>
+      <% } %>
 
       <% include include/footer %>
     </div>
     <% include include/script %>
     <script src="js/moe_competition.js"></script>
+    <% include include/analytics %>
   </body>
 </html>

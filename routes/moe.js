@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 
     category.findAll(function(err, categories){
       var isLast = false;
-      var categorySize = categories.length;
+      var categorySize = 2; // categories.length;
       if (categoryId === categorySize) {
         isLast = true;
       }

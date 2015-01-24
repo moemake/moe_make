@@ -13,6 +13,8 @@ var moe = require('./routes/moe');
 var moeCompetition = require('./routes/moeCompetition');
 var moeResult = require('./routes/moeResult');
 
+var categoryModel = require('./models/category');
+
 var app = express();
 
 // view engine setup
@@ -34,6 +36,10 @@ app.use(session({
   },
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+categoryModel.findAll(function(err, categories){
+  app.set('moeCategories', categories);
+});
 
 app.use('/', routes);
 app.use('/moe', moe);

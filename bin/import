@@ -33,6 +33,7 @@ csvPaths.forEach(function(path) {
   category.insert({
     categoryId: categoryId,
     categoryName: categoryName,
+    subCategoryCount: array.length,
   });
   array.forEach(function(entry) {
     if (entry === '') return;

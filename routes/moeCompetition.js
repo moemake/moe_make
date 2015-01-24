@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var session = require('../models/session');
 var result = require('../models/moeResult');
+var categoryRank = require('../models/categoryRank');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -16,9 +17,12 @@ router.post('/', function(req, res) {
   var names = req.body.id.map(function(entry){
     return entry.entryName;
   });
+  var entries = req.body.id;
   result.store(req.sessionID, req.body.id, function(err, data){
-    console.log(data._id);
-    res.send({id: data._id, result: names});
+    var dataId = data._id;
+    categoryRank.increments(entries, function(err, data){
+      res.send({id: dataId, result: names});
+    });
   });
 });
 

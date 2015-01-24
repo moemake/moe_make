@@ -29,7 +29,7 @@ $pink: #fe5e97;
 .footer {
   border-top: 1px solid #fe5e97;
   padding-top: 5px;
-  margin-top: 50px;
+  margin: 50px 0 40px 0;
 }
 
 .title-type1 {
@@ -162,6 +162,12 @@ $pink: #fe5e97;
     box-align: center;
     -webkit-box-pack: center;
     box-pack: center;
+  }
+}
+
+.page-err {
+  h1 {
+    font-size: 3rem;
   }
 }
 

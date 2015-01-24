@@ -1,3 +1,20 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include include/header %>
+  </head>
+  <body>
+    <div class="container page-err">
+      <header class="align-c m-t-xl m-b-xxl txt-xxl">
+        <h1>404 NOT FOUND</h1>
+        <p><span class="txt-bold txt-pink">ナニ</span>をさがしているのかな？</p>
+      </header>
+
+      <section class="sec-err align-c">
+        <img src="/img/404.png" alt="404" width="146" height="305" class="m-b-s">
+      </section>
+
+      <% include include/footer %>
+    </div>
+  </body>
+</html>

@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
+var _ = require('lodash');
 var category = require('../models/category');
 var session = require('../models/session');
 
@@ -26,7 +27,7 @@ router.get('/', function(req, res) {
       }
       var percentage = parseInt((categoryId/categorySize) * 100);
       res.render('index', { 
-        entries: data.entries,
+        entries: _.shuffle(data.entries),
         categoryName: data.categoryName,
         categoryId:   data.categoryId,
         percentage:   percentage, 

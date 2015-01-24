@@ -1,6 +1,7 @@
 var url = require('url');
 var mongoUri = process.env.MONGOLAB_URI || 'localhost/moedb';
 var redisUri = '';
+console.log(process.env.REDISTOGO_URL);
 if (process.env.REDISTOGO_URL) {
   redisUri = url.parse(process.env.REDISTOGO_URL);
 }

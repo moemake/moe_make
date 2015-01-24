@@ -1,11 +1,12 @@
 "use strict";
 var redis = require("redis");
-var config = require('../config');
+var config = require('../config')();
 
 var CategoryRank = function(){};
 
 function createClient() {
   var client;
+  console.log(config.redisUrl);
   if(config.redisUrl) {
     var redisUrl = config.redisUrl;
     client = redis.createClient(redisUrl.port, redisUrl.hostname);

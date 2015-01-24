@@ -30,12 +30,13 @@ ol, ul {list-style: none;}
 /* default styles */
 html {font-size: 62.5%;}
 body {
-     line-height: 1.2;
-     font-family: ArialMT, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", sans-serif;
-     font-size: 1.4rem;
-     -webkit-text-size-adjust: none;
-     // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: #333;
+  line-height: 1.2;
+  font-family: ArialMT, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", sans-serif;
+  font-size: 1.4rem;
+  -webkit-text-size-adjust: none;
+  // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: #333;
+  overflow: hidden;
 }
 :focus {outline: 0;}
 ins {text-decoration: none;}

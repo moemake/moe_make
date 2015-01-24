@@ -288,41 +288,40 @@
 .sec-graph .pointer {
   position: relative;
   top: -5px;
-  left: 40%;
   width: 0;
   height: 40px;
   border-left: 4px solid #333;
   margin-left: -2px;
 }
-/* line 282, ../../src/scss/style.scss */
+/* line 281, ../../src/scss/style.scss */
 .sec-graph .label {
   position: absolute;
   bottom: -20px;
   font-weight: bold;
 }
-/* line 288, ../../src/scss/style.scss */
+/* line 287, ../../src/scss/style.scss */
 .sec-graph .txt-mejor {
   left: 0px;
   color: #ef2fbf;
 }
-/* line 293, ../../src/scss/style.scss */
+/* line 292, ../../src/scss/style.scss */
 .sec-graph .txt-minor {
   right: 0px;
   color: #591caf;
 }
-/* line 298, ../../src/scss/style.scss */
+/* line 297, ../../src/scss/style.scss */
 .sec-graph .hitokoto {
   font-weight: bold;
   font-size: 1.8rem;
   text-align: center;
 }
 
-/* line 306, ../../src/scss/style.scss */
+/* line 305, ../../src/scss/style.scss */
 .page-err h1 {
   font-size: 3rem;
 }
 
-/* line 312, ../../src/scss/style.scss */
+/* line 311, ../../src/scss/style.scss */
 .tutorial {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -336,20 +335,20 @@
   background-color: #FFF;
   border: 3px solid #fe5e97;
 }
-/* line 324, ../../src/scss/style.scss */
+/* line 323, ../../src/scss/style.scss */
 .tutorial .section1 .logo {
   width: 100%;
   height: auto;
 }
-/* line 331, ../../src/scss/style.scss */
+/* line 330, ../../src/scss/style.scss */
 .tutorial .section2 header {
   border-bottom: 2px dotted #fe5e97;
 }
-/* line 335, ../../src/scss/style.scss */
+/* line 334, ../../src/scss/style.scss */
 .tutorial .section2 li {
   margin-bottom: 10px;
 }
-/* line 337, ../../src/scss/style.scss */
+/* line 336, ../../src/scss/style.scss */
 .tutorial .section2 li:before {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -364,15 +363,15 @@
   font-weight: bold;
   margin-right: 5px;
 }
-/* line 349, ../../src/scss/style.scss */
+/* line 348, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(1):before {
   content: "1";
 }
-/* line 352, ../../src/scss/style.scss */
+/* line 351, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(2):before {
   content: "2";
 }
-/* line 355, ../../src/scss/style.scss */
+/* line 354, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(3):before {
   content: "3";
 }

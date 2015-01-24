@@ -30,9 +30,9 @@
 
       <section class="sec-result m-b-xl">
         <h1 class="title-type2 m-b-l">あなたの最強萌え要素は...</h1>
-        <p class="txt-result m-b-m"><%- names %>キャラです。</p>
+        <p class="txt-result m-b-m"><%- names %>です。</p>
         <div class="social-btns align-r">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%- url %>" data-text="私の最強萌えキャラは<%- namesStr %>キャラです。<%=moerate%>%のメジャー度合いです ">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%- url %>" data-text="私の最強萌えキャラは<%- namesStr %>です。<%- aori %>">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
       </section>
 
@@ -43,7 +43,7 @@
           <span class="label txt-mejor">メジャー</span>
           <span class="label txt-minor">マイナー</span>
         </div>
-        <p class="hitokoto">TODO:なんか一言あったらうれしいかも</p>
+        <p class="hitokoto"><%- aori %></p>
       </section>
 
       <div class="align-c m-b-l">

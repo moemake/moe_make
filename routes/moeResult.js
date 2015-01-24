@@ -1,9 +1,29 @@
+"use strict";
 var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
 var result = require('../models/moeResult');
 var category = require('../models/category');
 var categoryRank = require('../models/categoryRank');
+
+var moeMessages = [
+  "いんじゃないスかぁ、大衆的感覚w",
+  "普通万歳！普通ヤッタネ！よっ普通大臣!!",
+  "変態だー!!!!",
+  "その性癖には流石に引いてます",
+];
+
+var getAoriText = function(moerate){
+  var moeLen = moeMessages.length;
+  for (var i=0; i<moeLen; i++) {
+    var prev = i/moeLen;
+    var next = i+1/moeLen;
+    if (prev <= moerate && moerate < next) {
+      return moeMessages[i];
+    }
+  }
+  return moeMessages[moeMessagesLen-1];
+};
 
 /* GET home page. */
 router.get('/:result/*', function(req, res) {
@@ -26,7 +46,6 @@ router.get('/:result/*', function(req, res) {
     var categories = app.get('moeCategories');
     console.log(categories);
     categoryRank.getRanks(data.result, function(err, ranks){
-      console.log("ranks = ", ranks);
       var moerate = 0.0;
       for(var index = 0; index<data.result.length; index++){
         var entry = data.result[index];
@@ -35,13 +54,22 @@ router.get('/:result/*', function(req, res) {
           if (cat.categoryName === entry.categoryName) {
             console.log("subCatgoryCount", cat.subCategoryCount);
             console.log("rank ", rank);
-            moerate += (rank/+cat.subCategoryCount);
+            var count = +cat.subCategoryCount;
+            moerate += (rank/count);
+            console.log(moerate);
           }
         });
       }
+      moerate = moerate / data.result.length;
+      var aori = getAoriText(moerate);
+      console.log('moerate', moerate);
       moerate = parseInt(moerate * 100);
       var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
-      res.render('moe_result', {  names: names, moerate: moerate, url: url, namesStr: namesStr, keywords: keywords});
+      if (req.session) {
+        req.session.destroy(function(err){
+          res.render('moe_result', {  names: names, moerate: moerate, url: url, namesStr: namesStr, aori: aori, keywords: keywords});
+        });
+      }
     });
   });
 });

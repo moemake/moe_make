@@ -5,11 +5,9 @@ var moes = db.get('moes');
 var session = db.get('session');
 var result = db.get('result');
 var category = db.get('category');
-var categoryRank = db.get('categoryRank');
 moes.drop();
 session.drop();
 result.drop();
 category.drop();
-categoryRank.drop();
 
 db.close();

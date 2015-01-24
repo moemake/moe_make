@@ -39,6 +39,12 @@ $pink: #fe5e97;
   padding: 5px 8px;
 }
 
+.title-type2 {
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}
+
 .btn-type1 {
   @include border-radius(2px);
   -webkit-box-sizing: border-box;
@@ -78,7 +84,7 @@ $pink: #fe5e97;
     width: 100%;
     height: 20px;
     border: 1px solid #D95081;
-    background-color: #EDA6BF;
+    background-color: #EAC0CF;
   }
 
   .bar {
@@ -132,6 +138,11 @@ $pink: #fe5e97;
 
 // moe_competionページ
 .sec-competition {
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
   .area-competition {
     display: -webkit-box;
     display: box;
@@ -143,6 +154,7 @@ $pink: #fe5e97;
 
   .block-left,
   .block-right {
+    @include border-radius(10px);
     display: -webkit-box;
     display: box;
     -webkit-box-align: center;
@@ -152,23 +164,79 @@ $pink: #fe5e97;
     width: 120px;
     height: 120px;
     text-align: center;
-    background-color: #fe5e97;
+    background-color: $pink;
     color: #FFF;
     font-weight: bold;
     font-size: 1.6rem;
   }
 
-  .vs {
+  .or {
     display: -webkit-box;
     display: box;
     height: 120px;
-    color: #fe5e97;
     font-weight: bold;
     font-size: 3rem;
     -webkit-box-align: center;
     box-align: center;
     -webkit-box-pack: center;
     box-pack: center;
+  }
+}
+
+
+// 結果ページ
+.sec-result {
+  padding: 0 10px;
+
+  .txt-result {
+    @include border-radius(10px);
+    padding: 10px;
+    background-color: #EAC0CF;
+    line-height: 1.6;
+  }
+}
+
+.sec-graph {
+
+  .wrap-graph {
+    position: relative;
+    width: 70%;
+    height: 30px;
+    margin: 0 auto;
+    background-color: #EAC0CF;
+    background: -moz-linear-gradient(left, #ef2fbf 0%, #591caf 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ef2fbf), color-stop(100%,#591caf)); 
+    background: -webkit-linear-gradient(left, #ef2fbf 0%,#591caf 100%); 
+    background: -o-linear-gradient(left, #ef2fbf 0%,#591caf 100%); 
+    background: -ms-linear-gradient(left, #ef2fbf 0%,#591caf 100%); 
+    background: linear-gradient(to right, #ef2fbf 0%,#591caf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef2fbf', endColorstr='#591caf',GradientType=1 );
+  }
+
+  .pointer {
+    position: relative;
+    top: -5px;
+    left: 40%;
+    width: 0;
+    height: 40px;
+    border-left: 4px solid #333;
+    margin-left: -2px;
+  }
+
+  .label {
+    position: absolute;
+    bottom: -20px;
+    font-weight: bold;
+  }
+
+  .txt-mejor {
+    left: 0px;
+    color: #ef2fbf;
+  }
+
+  .txt-minor {
+    right: 0px;
+    color: #591caf;
   }
 }
 

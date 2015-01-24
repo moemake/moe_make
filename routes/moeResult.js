@@ -10,9 +10,8 @@ router.get('/:result/*', function(req, res) {
     if (err) return res.redirect("/moe");
     if (!data) return res.redirect("/moe");
     var names = data.result.map(function(entry){
-
-      return entry.entryName;
-    }).join("  と ");
+      return '<span class="txt-bold txt-xxl">' + entry.entryName + '</span>';
+    }).join("、");
     console.log(names);
     res.render('moe_result', {  names: names });
   });

@@ -5,16 +5,25 @@
   </head>
   <body>
     <div class="container page-top">
-      <header class="row header m-b-m">
-          <h1 class="h6">最強萌えキャラメーカー</h1>
+      <header class="align-c m-t-m m-b-l">
+        <h1>
+          <a href="/"><img src="/img/logo.png" alt="最強萌えキャラメーカー" width="324" height="129" class="m-b-s"></a>
+        </h1>
       </header>
-      <div class="main-img align-c">
-        <img src="/img/logo.png" alt="" width="324" height="129">
-      </div>
-      <h1 class="m-b-l title-type1">あなたの好きな萌え要素は</h1>
-      <h1><%- names %>です</h1>
 
+      <section class="sec-result m-b-xl">
+        <h1 class="title-type2 m-b-l">あなたの最強萌え要素は...</h1>
+        <p class="txt-result"><%- names %>キャラです。</p>
+      </section>
 
+      <section class="sec-graph">
+        <h1 class="title-type1 m-b-l">あなたの好みは...</h1>
+        <div class="wrap-graph">
+          <div class="pointer"></div>
+          <span class="label txt-mejor">メジャー</span>
+          <span class="label txt-minor">マイナー</span>
+        </div>
+      </section>
 
       <% include include/footer %>
     </div>

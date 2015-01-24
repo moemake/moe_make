@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% var title = tweetStr + " | オレモエ"; %>
+    <% var title = namesStr + " | オレモエ"; %>
     <% include include/header %>
+    <meta name="description" content="私は<%- namesStr %>キャラが好き。 | オレモエ">
+    <meta name="keywords" content="<%- keywords %>,オレモエ,俺萌え">
 
     <% /* OGP関連 */ %>
     <meta property="og:site_name" content="オレモエ">
     <meta property="og:url" content="<%- url %>">
-    <meta property="og:title" content="私は<%- tweetStr %>キャラが好き。 | オレモエ">
+    <meta property="og:title" content="私は<%- namesStr %>キャラが好き。 | オレモエ">
     <meta property="og:type" content="article">
     <meta property="og:image" content="http://oremoe.herokuapp.com/img/card.png">
-    <meta property="og:description" content="私は<%- tweetStr %>キャラが好き。">
+    <meta property="og:description" content="私は<%- namesStr %>キャラが好き。">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:url" content="<%- url %>">
-    <meta name="twitter:title" content="私は<%- tweetStr %>キャラが好き。 | オレモエ">
-    <meta name="twitter:description" content="私は<%- tweetStr %>キャラが好き。">
+    <meta name="twitter:title" content="私は<%- namesStr %>キャラが好き。 | オレモエ">
+    <meta name="twitter:description" content="私は<%- namesStr %>キャラが好き。">
     <meta name="twitter:image" content="http://oremoe.herokuapp.com/img/card.png">
   </head>
   <body>
@@ -30,7 +32,7 @@
         <h1 class="title-type2 m-b-l">あなたの最強萌え要素は...</h1>
         <p class="txt-result m-b-m"><%- names %>キャラです。</p>
         <div class="social-btns align-r">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%- url %>" data-text="私の最強萌えキャラは<%- tweetStr %>キャラです。<%=moerate%>%のメジャー度合いです ">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%- url %>" data-text="私の最強萌えキャラは<%- namesStr %>キャラです。<%=moerate%>%のメジャー度合いです ">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
       </section>
 

@@ -14,9 +14,12 @@ router.get('/:result/*', function(req, res) {
     var names = data.result.map(function(entry){
       return '<span class="txt-bold txt-xxl">' + entry.entryName + '</span>';
     }).join("、");
-    var tweetStr = data.result.map(function(entry){
+    var namesStr = data.result.map(function(entry){
       return entry.entryName;
     }).join("、");
+    var keywords = data.result.map(function(entry){
+      return entry.entryName;
+    }).join(",");
     console.log(names);
     console.log(data.result);
     var app = require('../app');
@@ -38,7 +41,7 @@ router.get('/:result/*', function(req, res) {
       }
       moerate = parseInt(moerate * 100);
       var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
-      res.render('moe_result', {  names: names, moerate: moerate, url: url, tweetStr: tweetStr});
+      res.render('moe_result', {  names: names, moerate: moerate, url: url, namesStr: namesStr, keywords: keywords});
     });
   });
 });

@@ -47,10 +47,9 @@
       if (window.localStorage === undefined) return;
 
       var is_tutorial_finished = localStorage.getItem("is_tutorial_finished");
-      // TODO: リリース前に治す
       if (is_tutorial_finished) return;
 
-      // this.open();
+      this.open();
       localStorage.setItem("is_tutorial_finished", 1);
     },
 

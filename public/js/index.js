@@ -63,4 +63,13 @@
 
   $('.js-item').on('click', onClickItem);
   $('#js-btn-next').on('click', onClickNext);
+
+  $('#js-neko3').on('click', function(e) {
+    var $target = $(e.target);
+    if ($target.hasClass('anim')) {
+      $target.removeClass('anim');
+    } else {
+      $target.addClass('anim');
+    }
+  });
 })();

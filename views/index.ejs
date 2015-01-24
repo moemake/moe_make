@@ -10,10 +10,22 @@
       </header>
 
       <section class="sec-progress m-b-m">
-        <h1 class="m-b-s">ただいま:<%= percentage %>%終了</h1>
+        <h1 class="m-b-s txt-bold">到達度合い:<%= percentage %>%</h1>
         <div class="wrap-progress">
           <div class="bar" style="width:<%= percentage %>%;"></div>
         </div>
+        <% if (percentage <= 33) { %>
+        <img class="img-neko" src="/img/ahe/0.png" alt="・・・" width="40" height="40">
+        <% } else if(percentage <= 66) { %>
+        <img id="js-neko3" class="img-neko neko3" src="/img/ahe/3.png" alt="お゛ほぉおおおおおおおお" width="40" height="40">
+        <img class="img-serifu serifu3" src="/img/serifu/3.png" alt="・・・" width="47" height="60">
+        <% } else if(percentage <= 99) { %>
+        <img class="img-neko" src="/img/ahe/2.png" alt="らめぇええ" width="40" height="40">
+        <img class="img-serifu serifu2" src="/img/serifu/2.png" alt="・・・" width="48" height="60">
+        <% } else if(percentage == 100) { %>
+        <img class="img-neko" src="/img/ahe/1.png" alt="んっ" width="40" height="40">
+        <img class="img-serifu serifu1" src="/img/serifu/1.png" alt="・・・" width="60" height="53">
+        <% } %>
       </section>
 
       <section class="sec-selection m-b-l">

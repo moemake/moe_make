@@ -36,7 +36,6 @@ body {
   -webkit-text-size-adjust: none;
   // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   color: #333;
-  overflow: hidden;
 }
 :focus {outline: 0;}
 ins {text-decoration: none;}
@@ -54,6 +53,11 @@ mark {background-color: transparent;}
 .cf:after {
      clear: both;
 }
+
+.container {
+  overflow-x: hidden;
+}
+
 /* box */
 .box {
   display: -webkit-box !important;

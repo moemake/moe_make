@@ -13,9 +13,12 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
  // todo if (!req.body.id) res.redirect("/error");
+  var names = req.body.id.map(function(entry){
+    return entry.entryName;
+  });
   result.store(req.sessionID, req.body.id, function(err, data){
     console.log(data._id);
-    res.send({id: data._id});
+    res.send({id: data._id, result: names});
   });
 });
 

@@ -46,9 +46,11 @@ router.get('/:result/*', function(req, res) {
     var categories = app.get('moeCategories');
     console.log(categories);
     categoryRank.getRanks(data.result, function(err, ranks){
+      if (err) res.redirect("/moe");
       var moerate = 0.0;
       for(var index = 0; index<data.result.length; index++){
         var entry = data.result[index];
+        if (!ranks) res.redirect("/moe");
         var rank = ranks[index];
         categories.forEach(function(cat){
           if (cat.categoryName === entry.categoryName) {

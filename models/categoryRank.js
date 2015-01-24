@@ -51,7 +51,7 @@ CategoryRank.prototype.increments = function(categories, cb){
   var multi = client.multi();
   client.on("error", function(err){
     client.quit();
-    if (cb) cb(err);
+    console.log(err);
   });
 
   categories.forEach(function(category){
@@ -70,7 +70,7 @@ CategoryRank.prototype.getRanks = function(categories, cb){
   var multi = client.multi();
   client.on("error", function(err){
     client.quit();
-    if (cb) cb(err);
+    console.log(err);
   });
 
   categories.forEach(function(category){

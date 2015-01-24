@@ -20,6 +20,8 @@ var csvPaths = [
   'data/looks.csv',
   'data/cloth.csv',
   'data/option.csv',
+  'data/ero.csv',
+  'data/gesuero.csv',
 ];
 
 var categoryId = 1;

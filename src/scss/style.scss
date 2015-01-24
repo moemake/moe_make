@@ -82,7 +82,7 @@ $pink: #fe5e97;
 
   .progress {
     @include border-radius(10px);
-    width: 100%;
+    width: 250px;
     height: 20px;
     border: 1px solid #D95081;
     background-color: #EAC0CF;
@@ -98,9 +98,14 @@ $pink: #fe5e97;
 
   .img-neko {
     position: absolute;
-    right: -50px;
+    right: -10px;
     top: 10px;
-    cursor: pointer;
+    &.neko0 {
+      cursor: pointer;
+    }
+    &.neko3 {
+      cursor: pointer;
+    }
     &.neko3.anim {
       -webkit-animation-delay: 0;
       -webkit-animation-duration: 0.1s;
@@ -115,7 +120,7 @@ $pink: #fe5e97;
     position: absolute;
 
     &.serifu0 {
-      right: -80px;
+      right: -40px;
       top: -45px;
       -webkit-transform: rotate(-20deg);
       -moz-transform: rotate(-20deg);
@@ -131,24 +136,24 @@ $pink: #fe5e97;
     }
 
     &.serifu1 {
-      right: -80px;
+      right: -40px;
       top: -45px;
       -webkit-transform: rotate(-20deg);
       -moz-transform: rotate(-20deg);
       -ms-transform: rotate(-20deg);
       transform: rotate(-20deg);
       -webkit-transform-origin: left bottom;
-      -webkit-animation: anim-scale .3s cubic-bezier(0, 0, .13, 1);
+      -webkit-animation: anim-scale2 .3s cubic-bezier(0, 0, .13, 1);
     }
 
     &.serifu2 {
-      right: -40px;
+      right: 0px;
       top: -41px;
       -webkit-transform-origin: left bottom;
       -webkit-animation: anim-scale .3s cubic-bezier(0, 0, .13, 1);
     }
     &.serifu3 {
-      right: -75px;
+      right: -35px;
       top: -45px;
       -webkit-transform-origin: left bottom;
       -webkit-animation: anim-scale .3s cubic-bezier(0, 0, .13, 1);
@@ -246,6 +251,7 @@ $pink: #fe5e97;
     color: #FFF;
     font-weight: bold;
     font-size: 1.6rem;
+    cursor: pointer;
   }
 
   .or {

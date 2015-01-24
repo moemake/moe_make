@@ -2,7 +2,6 @@
 ;(function() {
 
   var data = JSON.parse($('#js-json-mymoe').html());
-  console.log(data);
 
   // ダミーだよ
   // 中身は違うとこんな配列で帰ってくると素敵
@@ -20,6 +19,10 @@
 
   Scene.prototype = {
     initialize: function() {
+      if (this.getCurrentCategory().entries.length <= 1) {
+        this.goNextCategory();
+      }
+
       this.render();
     },
 
@@ -67,7 +70,6 @@
         .text(competitor[1].entryName)
         .data('lost-id', competitor[0].entryId);
       this.$categoryName.text(this.getCurrentCategory().categoryName);
-
     },
 
     // 色々やらせすぎ

@@ -40,7 +40,7 @@
 /* line 42, ../../src/scss/style.scss */
 .title-type2 {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.8rem;
   text-align: center;
 }
 
@@ -80,11 +80,11 @@
 /* line 78, ../../src/scss/style.scss */
 .sec-progress {
   position: relative;
-  width: 70%;
+  width: 300px;
   margin: 0 auto;
 }
 /* line 83, ../../src/scss/style.scss */
-.sec-progress .wrap-progress {
+.sec-progress .progress {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -374,17 +374,22 @@
 }
 /* line 358, ../../src/scss/style.scss */
 .tutorial .section2 li {
+  position: relative;
   margin-bottom: 15px;
+  padding-left: 25px;
   font-weight: bold;
 }
-/* line 362, ../../src/scss/style.scss */
+/* line 364, ../../src/scss/style.scss */
 .tutorial .section2 li:before {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 20px;
   height: 20px;
+  margin-top: -10px;
   line-height: 20px;
   background-color: #fe5e97;
   text-align: center;
@@ -392,15 +397,15 @@
   font-weight: bold;
   margin-right: 5px;
 }
-/* line 374, ../../src/scss/style.scss */
+/* line 379, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(1):before {
   content: "1";
 }
-/* line 377, ../../src/scss/style.scss */
+/* line 382, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(2):before {
   content: "2";
 }
-/* line 380, ../../src/scss/style.scss */
+/* line 385, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(3):before {
   content: "3";
 }
@@ -635,7 +640,7 @@
     transform: rotateZ(360deg);
   }
 }
-/* line 674, ../../src/scss/style.scss */
+/* line 679, ../../src/scss/style.scss */
 .loading {
   background-position: 0 -1274px;
   height: 40px;
@@ -667,7 +672,7 @@
   z-index: 101;
 }
 
-/* line 705, ../../src/scss/style.scss */
+/* line 710, ../../src/scss/style.scss */
 .loading.show {
   display: block;
 }

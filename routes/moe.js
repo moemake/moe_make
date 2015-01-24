@@ -2,8 +2,8 @@
 var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
+var category = require('../models/category');
 var session = require('../models/session');
-var MAX_CATEGORY_ID = 2;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -17,17 +17,23 @@ router.get('/', function(req, res) {
       res.status(500).send(err);
     }
 
-    var isLast = false;
-    if (categoryId === MAX_CATEGORY_ID) {
-      isLast = true;
-    }
 
-    res.render('index', { 
-      entries: data.entries,
-      categoryName: data.categoryName,
-      categoryId:   data.categoryId,
-      isLast:       isLast
+    category.findAll(function(err, categories){
+      var isLast = false;
+      var categorySize = categories.length;
+      if (categoryId === categorySize) {
+        isLast = true;
+      }
+      var percentage = parseInt((categoryId/categorySize) * 100);
+      res.render('index', { 
+        entries: data.entries,
+        categoryName: data.categoryName,
+        categoryId:   data.categoryId,
+        percentage:   percentage, 
+        isLast:       isLast
+      });
     });
+
   });
 });
 

@@ -3,6 +3,7 @@ var config = require('../config');
 var fs = require('fs');
 var db = require('monk')(config().mongoUrl);
 var moes = db.get('moes');
+var category = db.get('category');
 var session = db.get('session');
 
 var csvPaths = [
@@ -29,6 +30,10 @@ csvPaths.forEach(function(path) {
   var data = "" + fs.readFileSync(path);
   var array = data.split("\n");
   var categoryName = array.shift();
+  category.insert({
+    categoryId: categoryId,
+    categoryName: categoryName,
+  });
   array.forEach(function(entry) {
     if (entry === '') return;
     moes.insert({

@@ -1,7 +1,33 @@
 'use strict'
 
+# see http://qiita.com/shinnn/items/57327006390f2181f550
+licenseRegexp = /^\!|^@preserve|^@cc_on|\bMIT\b|\bMPL\b|\bGPL\b|\(c\)|License|Copyright|three\.js/mi;
+
+isLicenseComment = do()->
+  _prevCommentLine = 0;
+
+  return (node, comment)->
+    if (licenseRegexp.test(comment.value) || comment.line is 1 || comment.line is _prevCommentLine + 1)
+        _prevCommentLine = comment.line
+        return true
+
+    _prevCommentLine = 0
+    return false
+
 module.exports = (grunt) ->
     grunt.initConfig
+        cssmin:
+            dist:
+                files:
+                    'public/css/dist/all.css': ['public/css/common.css', 'public/css/style.css']
+
+        concat:
+            options:
+                separator: ';'
+            dist:
+                src: ['public/js/vendor/lodash/dist/lodash.min.js', 'public/js/vendor/jquery/dist/jquery.min.js']
+                dest: 'public/js/vendor.js'
+
         sass:
             build:
                 files: [
@@ -19,7 +45,7 @@ module.exports = (grunt) ->
         watch:
             compass: 
                 files: ['./src/scss/*.scss']
-                tasks: ['compass:build']
+                tasks: ['compass:build', 'cssmin:dist']
                 options:
                     nospawn: true
         clean:
@@ -31,6 +57,8 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-newer'
-    grunt.loadNpmTasks 'grunt-contrib-compass';
+    grunt.loadNpmTasks 'grunt-contrib-compass'
+    grunt.loadNpmTasks 'grunt-contrib-concat'
+    grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
-    grunt.registerTask 'default', ['clean:css', 'compass:build', 'watch']
+    grunt.registerTask 'default', ['concat', 'clean:css', 'compass:build', 'cssmin', 'watch']

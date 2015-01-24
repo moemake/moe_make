@@ -35,9 +35,11 @@
     addEvent: function() {
       var $btnNext = $("#js-btn-tutorial-next");
       var $btnEnd = $("#js-btn-tutorial-end");
+      var $btnReopen = $("#js-btn-tutorial-reopen");
 
       $btnNext.on("click", this.next.bind(this));
       $btnEnd.on("click", this.end.bind(this));
+      $btnReopen.on("click", this.reopen.bind(this));
     },
 
     handleOpen: function() {
@@ -75,6 +77,12 @@
         .addClass("js-show");
       this.center();
       overlay.css({height: getPageSize() + 'px'});
+    },
+
+    reopen: function() {
+      this.section1.hide();
+      this.section2.show();
+      this.open();
     },
 
     center: function() {

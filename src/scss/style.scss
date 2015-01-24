@@ -122,7 +122,12 @@ $pink: #fe5e97;
       -ms-transform: rotate(-20deg);
       transform: rotate(-20deg);
       -webkit-transform-origin: left bottom;
-      -webkit-animation: anim-scale2 .3s cubic-bezier(0, 0, .13, 1);
+      -webkit-animation-delay: 1s;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-name: anim-swing;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in-out;
     }
     &.serifu2 {
       right: -40px;
@@ -149,6 +154,12 @@ $pink: #fe5e97;
   0%   {-webkit-transform: scale(0) rotate(-20deg);}
   70%  {-webkit-transform: scale(1.2) rotate(-20deg);}
   100%  {-webkit-transform: scale(1) rotate(-20deg);}
+}
+
+@-webkit-keyframes anim-swing {
+  0%   {-webkit-transform: rotate(-20deg);}
+  50%  {-webkit-transform: rotate(0);}
+ 100%  {-webkit-transform: rotate(-20deg);}
 }
 
 .sec-selection {
@@ -328,11 +339,14 @@ $pink: #fe5e97;
 
   .section2 {
     header  {
+      font-weight: bold;
       border-bottom: 2px dotted $pink;
     }
     
     li {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-weight: bold;
+
       &:before {
         @include border-radius(10px);
         display: inline-block;
@@ -610,5 +624,73 @@ $pink: #fe5e97;
         -webkit-transform: translate(-4px, 7px) rotate(-2.5deg);
         transform: translate(-4px, 7px) rotate(-2.5deg)
     }
+}
+
+// ローディング
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg)
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg)
+  }
+}
+
+@-moz-keyframes loading {
+  0% {
+    -moz-transform: rotateZ(0deg);
+    transform: rotateZ(0deg)
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+    transform: rotateZ(360deg)
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotateZ(0deg)
+  }
+  100% {
+    transform: rotateZ(360deg)
+  }
+}
+
+.loading {
+    background-position: 0 -1274px;
+    height: 40px;
+    width: 40px;
+    -webkit-animation-delay: 0;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: loading;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-delay: 0;
+    -moz-animation-duration: 1s;
+    -moz-animation-name: loading;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    animation-delay: 0;
+    animation-duration: 1s;
+    animation-name: loading;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+    z-index: 101
+}
+
+.loading.show {
+    display: block
 }
 

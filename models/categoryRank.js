@@ -1,12 +1,12 @@
 "use strict";
 var redis = require("redis");
 var config = require('../config')();
+var client = createClient();
 
 var CategoryRank = function(){};
 
 function createClient() {
   var client;
-  console.log(config.redisUrl);
   if(config.redisUrl) {
     var redisUrl = config.redisUrl;
     client = redis.createClient(redisUrl.port, redisUrl.hostname);
@@ -18,25 +18,19 @@ function createClient() {
 }
 
 CategoryRank.prototype.incrementCategory = function(categoryName, subcategoryName, cb){
-  var client = createClient();
   client.on("error", function(err){
-    client.quit();
     if (cb) cb(err);
   });
   client.zincrby(categoryName, 1, subcategoryName, function(){
-    client.quit();
     if (cb) cb(null);
   });
 };
 
 CategoryRank.prototype.getRank = function(categoryName, subcategoryName, cb){
-  var client = createClient();
   client.on("error", function(err){
-    client.quit();
     if (cb) cb(err);
   });
   client.zrank(categoryName, subcategoryName, function(err, rank){
-    client.quit();
     if (err) cb(err);
     if (cb) cb(null, rank);
   });
@@ -47,10 +41,8 @@ CategoryRank.prototype.getRank = function(categoryName, subcategoryName, cb){
 //   categories: [{categoryName: '', subCategoryName: ''}]
 // });
 CategoryRank.prototype.increments = function(categories, cb){
-  var client = createClient();
   var multi = client.multi();
   client.on("error", function(err){
-    client.quit();
     console.log(err);
   });
 
@@ -62,17 +54,14 @@ CategoryRank.prototype.increments = function(categories, cb){
   });
 
   multi.exec(function(err, data){
-    client.quit();
     cb(err, data);
   });
 };
 
 
 CategoryRank.prototype.getRanks = function(categories, cb){
-  var client = createClient();
   var multi = client.multi();
   client.on("error", function(err){
-    client.quit();
     console.log(err);
   });
 
@@ -83,7 +72,6 @@ CategoryRank.prototype.getRanks = function(categories, cb){
   });
 
   multi.exec(function(err, data){
-    client.quit();
     cb(err, data);
   });
 };

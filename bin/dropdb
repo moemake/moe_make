@@ -3,11 +3,9 @@ var config = require('../config');
 var db = require('monk')(config().mongoUrl);
 var moes = db.get('moes');
 var session = db.get('session');
-var result = db.get('result');
 var category = db.get('category');
 moes.drop();
 session.drop();
-result.drop();
 category.drop();
 
 db.close();

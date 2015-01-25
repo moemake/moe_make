@@ -22,7 +22,7 @@ var getAoriText = function(moerate){
       return moeMessages[i];
     }
   }
-  return moeMessages[moeMessagesLen-1];
+  return moeMessages[moeLen-1];
 };
 
 /* GET home page. */
@@ -31,22 +31,24 @@ router.get('/:result/*', function(req, res) {
   result.findById(req.params.result, function(err, data){
     if (err) return res.redirect("/moe");
     if (!data) return res.redirect("/moe");
+
     var names = data.result.map(function(entry){
       return '<span class="txt-bold txt-xxl">' + entry.entryName + '</span>';
     }).join("、");
+    
     var namesStr = data.result.map(function(entry){
       return entry.entryName;
     }).join("、");
+
     var keywords = data.result.map(function(entry){
       return entry.entryName;
     }).join(",");
-    console.log(names);
-    console.log(data.result);
+
     var app = require('../app');
     var categories = app.get('moeCategories');
-    console.log(categories);
     categoryRank.getRanks(data.result, function(err, ranks){
       if (err) res.redirect("/moe");
+
       var moerate = 0.0;
       for(var index = 0; index<data.result.length; index++){
         var entry = data.result[index];
@@ -54,24 +56,28 @@ router.get('/:result/*', function(req, res) {
         var rank = ranks[index];
         categories.forEach(function(cat){
           if (cat.categoryName === entry.categoryName) {
-            console.log("subCatgoryCount", cat.subCategoryCount);
-            console.log("rank ", rank);
             var count = +cat.subCategoryCount;
             moerate += (rank/count);
-            console.log(moerate);
           }
         });
       }
-      moerate = moerate / data.result.length;
-      var aori = getAoriText(moerate);
-      console.log('moerate', moerate);
-      moerate = parseInt(moerate * 100);
-      var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
-      if (req.session) {
-        req.session.destroy(function(err){
-          res.render('moe_result', {  names: names, moerate: moerate, url: url, namesStr: namesStr, aori: aori, keywords: keywords});
-        });
+      var aori = "なんか選べよ！！！";
+      if (data.result.length !== 0) {
+        moerate = moerate / data.result.length;
+        aori = getAoriText(moerate);
+        moerate = parseInt(moerate * 100);
       }
+      var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
+      req.session.destroy(function(err){
+        res.render('moe_result', {  
+          names: names || "何も選んでない...", 
+          moerate: moerate, 
+          url: url, 
+          namesStr: namesStr || "何も選んでない...", 
+          aori: aori, 
+          keywords: keywords
+        });
+      });
     });
   });
 });

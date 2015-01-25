@@ -4,8 +4,11 @@ var db = require('monk')(config().mongoUrl);
 var moes = db.get('moes');
 var session = db.get('session');
 var category = db.get('category');
-moes.drop();
-session.drop();
-category.drop();
+moes.drop().on('complete', function(){
+  session.drop().on('complete', function(){
+    category.drop().on('complete', function(){
+      db.close();
+    });
+  });
+});
 
-db.close();

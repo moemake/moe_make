@@ -26,6 +26,8 @@ var csvPaths = [
 
 var categoryId = 1;
 var entryId = 1;
+var catCompleted = 0;
+var subCompleted = 0;
 csvPaths.forEach(function(path) {
   console.log(path);
   console.log(categoryId);
@@ -36,6 +38,11 @@ csvPaths.forEach(function(path) {
     categoryId: categoryId,
     categoryName: categoryName,
     subCategoryCount: array.length,
+  }).on('complete', function(err, data){
+    catCompleted++;
+    if (catCompleted === csvPaths.length) {
+      process.emit('category finished');
+    }
   });
   array.forEach(function(entry) {
     if (entry === '') return;
@@ -44,10 +51,32 @@ csvPaths.forEach(function(path) {
       categoryName: categoryName,
       entryId: entryId,
       entry: entry,
+    }).on('complete', function(err, data){
+      subCompleted++;
+      if (subCompleted === csvPaths.length) {
+        process.emit('subcategory finished');
+      }
     });
     entryId++;
   });
   categoryId++;
 });
 
-db.close();
+var categoryFinished = false;
+process.on('category finished', function(){
+  categoryFinished = true;
+  if (subCategoryFinished) {
+    console.log("FINISHED");
+    db.close();
+  }
+});
+
+var subCategoryFinished = false;
+process.on('subcategory finished', function(){
+  subCategoryFinished = true;
+  if (categoryFinished) {
+    console.log("FINISHED");
+    db.close();
+  }
+});
+

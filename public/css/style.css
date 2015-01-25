@@ -375,19 +375,26 @@
   width: 100%;
   height: auto;
 }
-/* line 359, ../../src/scss/style.scss */
+/* line 357, ../../src/scss/style.scss */
+.tutorial .section1 .title {
+  color: #fe5e97;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}
+/* line 366, ../../src/scss/style.scss */
 .tutorial .section2 header {
   font-weight: bold;
   border-bottom: 2px dotted #fe5e97;
 }
-/* line 364, ../../src/scss/style.scss */
+/* line 371, ../../src/scss/style.scss */
 .tutorial .section2 li {
   position: relative;
   margin-bottom: 15px;
   padding-left: 25px;
   font-weight: bold;
 }
-/* line 370, ../../src/scss/style.scss */
+/* line 377, ../../src/scss/style.scss */
 .tutorial .section2 li:before {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -405,15 +412,15 @@
   font-weight: bold;
   margin-right: 5px;
 }
-/* line 385, ../../src/scss/style.scss */
+/* line 392, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(1):before {
   content: "1";
 }
-/* line 388, ../../src/scss/style.scss */
+/* line 395, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(2):before {
   content: "2";
 }
-/* line 391, ../../src/scss/style.scss */
+/* line 398, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(3):before {
   content: "3";
 }
@@ -648,7 +655,7 @@
     transform: rotateZ(360deg);
   }
 }
-/* line 685, ../../src/scss/style.scss */
+/* line 692, ../../src/scss/style.scss */
 .loading {
   background-position: 0 -1274px;
   height: 40px;
@@ -680,7 +687,7 @@
   z-index: 101;
 }
 
-/* line 716, ../../src/scss/style.scss */
+/* line 723, ../../src/scss/style.scss */
 .loading.show {
   display: block;
 }

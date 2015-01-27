@@ -74,12 +74,12 @@ router.get('/:result/*', function(req, res) {
       var pixivKeyword = _.sample(data.result).entryName;
       pixiv.search(pixivKeyword, function(images){
         var pixivImage = "";
+        var pixivUrl = "";
         if (images.length > 0) {
-          pixivImage = _.sample(images);
-          if (pixivImage.illust_480mw_url) {
-            pixivImage = pixivImage.illust_480mw_url;
-          } else {
-            pixivImage = "";
+          var pixivInfo = _.sample(images);
+          if (pixivInfo.illust_480mw_url) {
+            pixivImage = pixivInfo.illust_480mw_url;
+            pixivUrl = "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=" + pixivInfo.illust_id;
           }
         }
         req.session.destroy(function(err){
@@ -90,7 +90,8 @@ router.get('/:result/*', function(req, res) {
             namesStr: namesStr || "何も選んでない...", 
             aori: aori, 
             keywords: keywords,
-            pixivImage: pixivImage
+            pixivImage: pixivImage,
+            pixivUrl: pixivUrl
           });
         });
       });

@@ -36,6 +36,13 @@
         </div>
       </section>
 
+      <section class="sec-image">
+        <h1 class="title-type1 m-b-l">あなたの好みの画像は...</h1>
+        <% if (pixivImage === "") { %>
+          見つかりませんでした。
+        <% } %>
+        <img src="<%- pixivImage %>" />
+      </section>
       <section class="sec-graph">
         <h1 class="title-type1 m-b-l">あなたの好みは...</h1>
         <div class="wrap-graph">

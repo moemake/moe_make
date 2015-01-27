@@ -5,6 +5,8 @@ var moe = require('../models/moe');
 var result = require('../models/moeResult');
 var category = require('../models/category');
 var categoryRank = require('../models/categoryRank');
+var pixiv = require('pixiv');
+var _ = require('lodash');
 
 var moeMessages = [
   "いんじゃないスかぁ、大衆的感覚w",
@@ -44,6 +46,7 @@ router.get('/:result/*', function(req, res) {
       return entry.entryName;
     }).join(",");
 
+
     var app = require('../app');
     var categories = app.get('moeCategories');
     categoryRank.getRanks(data.result, function(err, ranks){
@@ -68,14 +71,27 @@ router.get('/:result/*', function(req, res) {
         moerate = parseInt(moerate * 100);
       }
       var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
-      req.session.destroy(function(err){
-        res.render('moe_result', {  
-          names: names || "何も選んでない...", 
-          moerate: moerate, 
-          url: url, 
-          namesStr: namesStr || "何も選んでない...", 
-          aori: aori, 
-          keywords: keywords
+      var pixivKeyword = _.sample(data.result).entryName;
+      pixiv.search(pixivKeyword, function(images){
+        var pixivImage = "";
+        if (images.length > 0) {
+          pixivImage = _.sample(images);
+          if (pixivImage.illust_480mw_url) {
+            pixivImage = pixivImage.illust_480mw_url;
+          } else {
+            pixivImage = "";
+          }
+        }
+        req.session.destroy(function(err){
+          res.render('moe_result', {  
+            names: names || "何も選んでない...", 
+            moerate: moerate, 
+            url: url, 
+            namesStr: namesStr || "何も選んでない...", 
+            aori: aori, 
+            keywords: keywords,
+            pixivImage: pixivImage
+          });
         });
       });
     });

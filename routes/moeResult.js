@@ -72,7 +72,12 @@ router.get('/:result/*', function(req, res) {
       }
       var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
       var pixivKeyword = _.sample(data.result).entryName;
-      pixiv.search(pixivKeyword, function(images){
+      var orderBy = _.sample(["date", ""]);
+      console.log("orderby ", orderBy);
+      pixiv.search({
+        word: pixivKeyword,
+        order: orderBy,
+      }, function(images){
         var pixivImage = "";
         var pixivUrl = "";
         if (images.length > 0) {

@@ -3,13 +3,23 @@ var express = require('express');
 var router = express.Router();
 var moe = require('../models/moe');
 var _ = require('lodash');
-var category = require('../models/category');
 var session = require('../models/session');
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function(req, res, next) {
   var categoryId = +req.query.categoryId || 1;
 
+  var app = require('../app');
+  var moeCategories = app.get('moeCategories');
+  var categorySize = moeCategories.length;
+  var isLast = false;
+  if (categoryId > categorySize) {
+    categoryId = categorySize;
+  }
+  if (categoryId === categorySize) {
+    isLast = true;
+  }
+  var percentage = parseInt((categoryId/categorySize) * 100);
   moe.findByCategoryId(categoryId, function(err, data){
     if (err === 'Not found') {
       res.status(404).send('Not Found');
@@ -17,24 +27,13 @@ router.get('/', function(req, res) {
     if (err) {
       res.status(500).send(err);
     }
-
-
-    category.findAll(function(err, categories){
-      var isLast = false;
-      var categorySize = categories.length;
-      if (categoryId === categorySize) {
-        isLast = true;
-      }
-      var percentage = parseInt((categoryId/categorySize) * 100);
-      res.render('index', { 
-        entries: _.shuffle(data.entries),
-        categoryName: data.categoryName,
-        categoryId:   data.categoryId,
-        percentage:   percentage, 
-        isLast:       isLast
-      });
+    res.render('index', { 
+      entries: _.shuffle(data.entries),
+      categoryName: data.categoryName,
+      categoryId:   data.categoryId,
+      percentage:   percentage, 
+      isLast:       isLast
     });
-
   });
 });
 

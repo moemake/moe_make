@@ -49,7 +49,16 @@
         <div id="js-category-id" class="d-none"><%= categoryId %></div>
         <div id="js-category-name" class="d-none"><%= categoryName %></div>
         <div class="list">
-          <ul class="list cf">
+          <% if (0) { %>
+            // 入れたけど見た目がダサくてやめたｗ
+            <% if (isLast) { %>
+            <div class="js-btn-next btn-type1 m-b-l" data-is-last="1">完了</div>
+            <% } else { %>
+            <div class="js-btn-next btn-type1 m-b-l">次へ</div>
+            <% } %>
+          <% } %>
+
+          <ul class="list cf m-b-l">
             <% entries.forEach(function(item) { %>
             <li class="js-item" data-item-id="<%= item.entryId %>" data-item-entry="<%= item.entry %>">
               <span class="check"></span>
@@ -57,14 +66,15 @@
             </li>
             <% }) %>
           </ul>
+
+          <% if (isLast) { %>
+          <div class="js-btn-next btn-type1" data-is-last="1">完了</div>
+          <% } else { %>
+          <div class="js-btn-next btn-type1">次へ</div>
+          <% } %>
+
         </div>
       </section>
-
-      <% if (isLast) { %>
-      <div id="js-btn-next" class="btn-type1" data-is-last="1">完了</div>
-      <% } else { %>
-      <div id="js-btn-next" class="btn-type1">次へ</div>
-      <% } %>
 
       <section id="js-tutorial" class="tutorial js-hide">
         <section id="js-tutorial-section1" class="section1">

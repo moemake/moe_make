@@ -100,14 +100,8 @@
     });
   };
 
-  var onClickEnd = function() {
-    console.log('end');
-  };
-
-
-
   $('.js-item').on('click', onClickItem);
-  $('#js-btn-next').on('click', onClickNext);
+  $('.js-btn-next').on('click', onClickNext);
   $('#js-neko3').on('click', function(e) {
     var $target = $(e.target);
     if ($target.hasClass('anim')) {

@@ -282,9 +282,37 @@ $pink: #fe5e97;
 }
 
 .sec-pixiv-image {
+  .wrap-img {
+    text-align: center;
+  }
+
   .img-pixiv {
     width: 100%;
     height: auto;
+  }
+
+  .img-pixiv-loading {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    -webkit-animation-delay: 0;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: loading;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-delay: 0;
+    -moz-animation-duration: 1s;
+    -moz-animation-name: loading;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    animation-delay: 0;
+    animation-duration: 1s;
+    animation-name: loading;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
 }
 
@@ -769,38 +797,11 @@ $pink: #fe5e97;
   }
 
   .sec-pixiv-image {
-    .wrap-img {
-      text-align: center;
-    }
-
     .img-pixiv {
       max-width: 400px;
       height: auto;
       margin: 0 auto;
     }
 
-    .img-pixiv-loading {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 20px;
-      -webkit-animation-delay: 0;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-name: loading;
-      -webkit-animation-fill-mode: forwards;
-      -webkit-animation-iteration-count: infinite;
-      -webkit-animation-timing-function: linear;
-      -moz-animation-delay: 0;
-      -moz-animation-duration: 1s;
-      -moz-animation-name: loading;
-      -moz-animation-fill-mode: forwards;
-      -moz-animation-iteration-count: infinite;
-      -moz-animation-timing-function: linear;
-      animation-delay: 0;
-      animation-duration: 1s;
-      animation-name: loading;
-      animation-fill-mode: forwards;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
   }
 }

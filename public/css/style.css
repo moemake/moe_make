@@ -303,16 +303,44 @@
 }
 
 /* line 285, ../../src/scss/style.scss */
+.sec-pixiv-image .wrap-img {
+  text-align: center;
+}
+/* line 289, ../../src/scss/style.scss */
 .sec-pixiv-image .img-pixiv {
   width: 100%;
   height: auto;
 }
+/* line 294, ../../src/scss/style.scss */
+.sec-pixiv-image .img-pixiv-loading {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: loading;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: loading;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: loading;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
 
-/* line 291, ../../src/scss/style.scss */
+/* line 319, ../../src/scss/style.scss */
 .sec-graph {
   margin-bottom: 70px;
 }
-/* line 294, ../../src/scss/style.scss */
+/* line 322, ../../src/scss/style.scss */
 .sec-graph .wrap-graph {
   position: relative;
   width: 70%;
@@ -327,7 +355,7 @@
   background: linear-gradient(to right, #ef2fbf 0%, #591caf 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef2fbf', endColorstr='#591caf',GradientType=1 );
 }
-/* line 309, ../../src/scss/style.scss */
+/* line 337, ../../src/scss/style.scss */
 .sec-graph .pointer {
   position: relative;
   top: -5px;
@@ -336,35 +364,35 @@
   border-left: 4px solid #333;
   margin-left: -2px;
 }
-/* line 318, ../../src/scss/style.scss */
+/* line 346, ../../src/scss/style.scss */
 .sec-graph .label {
   position: absolute;
   bottom: -20px;
   font-weight: bold;
 }
-/* line 324, ../../src/scss/style.scss */
+/* line 352, ../../src/scss/style.scss */
 .sec-graph .txt-mejor {
   left: 0px;
   color: #ef2fbf;
 }
-/* line 329, ../../src/scss/style.scss */
+/* line 357, ../../src/scss/style.scss */
 .sec-graph .txt-minor {
   right: 0px;
   color: #591caf;
 }
-/* line 334, ../../src/scss/style.scss */
+/* line 362, ../../src/scss/style.scss */
 .sec-graph .hitokoto {
   font-weight: bold;
   font-size: 1.8rem;
   text-align: center;
 }
 
-/* line 342, ../../src/scss/style.scss */
+/* line 370, ../../src/scss/style.scss */
 .page-err h1 {
   font-size: 3rem;
 }
 
-/* line 348, ../../src/scss/style.scss */
+/* line 376, ../../src/scss/style.scss */
 .tutorial {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -378,31 +406,31 @@
   background-color: #FFF;
   border: 3px solid #fe5e97;
 }
-/* line 360, ../../src/scss/style.scss */
+/* line 388, ../../src/scss/style.scss */
 .tutorial .section1 .logo {
   width: 100%;
   height: auto;
 }
-/* line 365, ../../src/scss/style.scss */
+/* line 393, ../../src/scss/style.scss */
 .tutorial .section1 .title {
   color: #fe5e97;
   font-weight: bold;
   font-size: 3rem;
   text-align: center;
 }
-/* line 374, ../../src/scss/style.scss */
+/* line 402, ../../src/scss/style.scss */
 .tutorial .section2 header {
   font-weight: bold;
   border-bottom: 2px dotted #fe5e97;
 }
-/* line 379, ../../src/scss/style.scss */
+/* line 407, ../../src/scss/style.scss */
 .tutorial .section2 li {
   position: relative;
   margin-bottom: 15px;
   padding-left: 25px;
   font-weight: bold;
 }
-/* line 385, ../../src/scss/style.scss */
+/* line 413, ../../src/scss/style.scss */
 .tutorial .section2 li:before {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -420,15 +448,15 @@
   font-weight: bold;
   margin-right: 5px;
 }
-/* line 400, ../../src/scss/style.scss */
+/* line 428, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(1):before {
   content: "1";
 }
-/* line 403, ../../src/scss/style.scss */
+/* line 431, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(2):before {
   content: "2";
 }
-/* line 406, ../../src/scss/style.scss */
+/* line 434, ../../src/scss/style.scss */
 .tutorial .section2 li:nth-child(3):before {
   content: "3";
 }
@@ -663,7 +691,7 @@
     transform: rotateZ(360deg);
   }
 }
-/* line 700, ../../src/scss/style.scss */
+/* line 728, ../../src/scss/style.scss */
 .loading {
   background-position: 0 -1274px;
   height: 40px;
@@ -695,7 +723,7 @@
   z-index: 101;
 }
 
-/* line 731, ../../src/scss/style.scss */
+/* line 759, ../../src/scss/style.scss */
 .loading.show {
   display: block;
 }
@@ -703,19 +731,19 @@
 /* PC対応
 -------------------------------------------------- */
 @media (min-width: 768px) {
-  /* line 738, ../../src/scss/style.scss */
+  /* line 766, ../../src/scss/style.scss */
   .container {
     width: 960px;
     margin: 0 auto;
   }
 
-  /* line 743, ../../src/scss/style.scss */
+  /* line 771, ../../src/scss/style.scss */
   .sec-progress {
     position: relative;
     width: 500px;
     margin: 0 auto;
   }
-  /* line 748, ../../src/scss/style.scss */
+  /* line 776, ../../src/scss/style.scss */
   .sec-progress .progress {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -725,7 +753,7 @@
     border: 1px solid #D95081;
     background-color: #EAC0CF;
   }
-  /* line 756, ../../src/scss/style.scss */
+  /* line 784, ../../src/scss/style.scss */
   .sec-progress .bar {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -736,43 +764,15 @@
     text-align: right;
   }
 
-  /* line 766, ../../src/scss/style.scss */
+  /* line 794, ../../src/scss/style.scss */
   .sec-selection .list {
     padding: 0 20px;
   }
 
-  /* line 772, ../../src/scss/style.scss */
-  .sec-pixiv-image .wrap-img {
-    text-align: center;
-  }
-  /* line 776, ../../src/scss/style.scss */
+  /* line 800, ../../src/scss/style.scss */
   .sec-pixiv-image .img-pixiv {
     max-width: 400px;
     height: auto;
     margin: 0 auto;
-  }
-  /* line 782, ../../src/scss/style.scss */
-  .sec-pixiv-image .img-pixiv-loading {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 20px;
-    -webkit-animation-delay: 0;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-name: loading;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-delay: 0;
-    -moz-animation-duration: 1s;
-    -moz-animation-name: loading;
-    -moz-animation-fill-mode: forwards;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: linear;
-    animation-delay: 0;
-    animation-duration: 1s;
-    animation-name: loading;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
   }
 }

@@ -30,6 +30,7 @@ $pink: #fe5e97;
   border-top: 1px solid #fe5e97;
   padding-top: 5px;
   margin: 50px 0 40px 0;
+  font-weight: bold;
 }
 
 .title-type1 {
@@ -277,6 +278,13 @@ $pink: #fe5e97;
     padding: 10px;
     background-color: #EAC0CF;
     line-height: 1.6;
+  }
+}
+
+.sec-pixiv-image {
+  .img-pixiv {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -724,3 +732,75 @@ $pink: #fe5e97;
     display: block
 }
 
+/* PC対応
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .sec-progress {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+
+    .progress {
+      @include border-radius(10px);
+      width: 450px;
+      height: 20px;
+      border: 1px solid #D95081;
+      background-color: #EAC0CF;
+    }
+
+    .bar {
+      @include border-radius(10px);
+      width: 50%;
+      height: 100%;
+      background-color: $pink;
+      text-align: right;
+    }
+  }
+
+  .sec-selection {
+    .list {
+      padding: 0 20px;
+    }
+  }
+
+  .sec-pixiv-image {
+    .wrap-img {
+      text-align: center;
+    }
+
+    .img-pixiv {
+      max-width: 400px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .img-pixiv-loading {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 20px;
+      -webkit-animation-delay: 0;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-name: loading;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-delay: 0;
+      -moz-animation-duration: 1s;
+      -moz-animation-name: loading;
+      -moz-animation-fill-mode: forwards;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+      animation-delay: 0;
+      animation-duration: 1s;
+      animation-name: loading;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}

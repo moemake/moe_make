@@ -46,6 +46,9 @@ router.get('/:result/*', function(req, res) {
       return entry.entryName;
     }).join(",");
 
+    var seoWordsForUrl = data.result.map(function(entry){
+      return entry.entryName;
+    }).join("+");
 
     var app = require('../app');
     var categories = app.get('moeCategories');
@@ -93,6 +96,7 @@ router.get('/:result/*', function(req, res) {
             moerate: moerate, 
             url: url, 
             namesStr: namesStr || "何も選んでない...", 
+            seoWordsForUrl: seoWordsForUrl || "",
             aori: aori, 
             keywords: keywords,
             pixivImage: pixivImage,

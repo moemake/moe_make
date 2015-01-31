@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <% var title = namesStr + " | オレモエ"; %>
     <% include include/header %>
@@ -19,6 +19,8 @@
     <meta name="twitter:title" content="私は<%- namesStr %>が好き。 | オレモエ">
     <meta name="twitter:description" content="私は<%- namesStr %>が好き。">
     <meta name="twitter:image" content="http://oremoe.herokuapp.com/img/card.png">
+
+    <link rel="canonical" href="<%- url + seoWordsForUrl %>">
   </head>
   <body>
     <div class="container page-top">
@@ -36,13 +38,18 @@
         </div>
       </section>
 
-      <section class="sec-image">
+      <section class="sec-pixiv-image">
         <h1 class="title-type1 m-b-l">あなたの好みの画像は...</h1>
-        <% if (pixivImage === "") { %>
-          見つかりませんでした。
-        <% } %>
-        <a href="<%- pixivUrl %>"><img src="<%- pixivImage %>" /></a>
+        <div class="wrap-img">
+          <% if (pixivImage === "") { %>
+            <p>見つかりませんでした。</p>
+          <% } else { %>
+            <a href="<%- pixivUrl %>" target="_blank"><img id="js-img-pixiv" class="img-pixiv-loading" src="/img/ahe/0.png" data-src="<%- pixivImage %>" /></a>
+            <div id="js-text-pixiv-loading" class="text-pixiv-loading">読み込み中</div>
+          <% } %>
+        </div>
       </section>
+
       <section class="sec-graph">
         <h1 class="title-type1 m-b-l">あなたの好みは...</h1>
         <div class="wrap-graph">
@@ -65,7 +72,7 @@
       <% include include/footer %>
     </div>
     <% include include/script %>
-    <script src="js/moe_competition.js"></script>
+    <script src="/js/moe_result.js"></script>
     <% include include/analytics %>
   </body>
 </html>

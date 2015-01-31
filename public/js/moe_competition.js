@@ -132,5 +132,4 @@
   };
 
   new Scene(data, new Model());
-
 })();

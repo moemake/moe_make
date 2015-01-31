@@ -47,7 +47,7 @@
       if (window.localStorage === undefined) return;
 
       var is_tutorial_finished = localStorage.getItem("is_tutorial_finished");
-      if (is_tutorial_finished) return;
+      // if (is_tutorial_finished) return;
 
       this.open();
       localStorage.setItem("is_tutorial_finished", 1);
@@ -75,7 +75,9 @@
         .removeClass("js-hide")
         .addClass("js-show");
       this.center();
-      overlay.css({height: getPageSize() + 'px'});
+      overlay
+        .one('click', this.end.bind(this))
+        .css({height: getPageSize() + 'px'});
     },
 
     reopen: function() {

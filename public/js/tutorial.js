@@ -47,7 +47,7 @@
       if (window.localStorage === undefined) return;
 
       var is_tutorial_finished = localStorage.getItem("is_tutorial_finished");
-      // if (is_tutorial_finished) return;
+      if (is_tutorial_finished) return;
 
       this.open();
       localStorage.setItem("is_tutorial_finished", 1);

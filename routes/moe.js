@@ -23,11 +23,11 @@ router.get('/', function(req, res, next) {
   moe.findByCategoryId(categoryId, function(err, data){
     if (err === 'Not found') {
       console.log(err);
-      res.status(404).send('Not Found');
+      return res.status(404).send('Not Found');
     }
     if (err) {
       console.log(err);
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
     res.render('index', { 
       entries: _.shuffle(data.entries),

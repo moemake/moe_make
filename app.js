@@ -12,6 +12,7 @@ var routes = require('./routes/index');
 var moe = require('./routes/moe');
 var moeCompetition = require('./routes/moeCompetition');
 var moeResult = require('./routes/moeResult');
+var pixiv = require('./routes/pixiv');
 
 var categoryModel = require('./models/category');
 
@@ -45,6 +46,7 @@ app.use('/', routes);
 app.use('/moe', moe);
 app.use('/moe_competition', moeCompetition);
 app.use('/moe_result', moeResult);
+app.use('/pixiv', pixiv);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

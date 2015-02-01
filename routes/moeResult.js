@@ -5,7 +5,6 @@ var moe = require('../models/moe');
 var result = require('../models/moeResult');
 var category = require('../models/category');
 var categoryRank = require('../models/categoryRank');
-var pixiv = require('pixiv');
 var _ = require('lodash');
 
 var moeMessages = [
@@ -68,40 +67,26 @@ router.get('/:result/*', function(req, res) {
         });
       }
       var aori = "なんか選べよ！！！";
+      var pixivKeyword = "";
+
       if (data.result.length !== 0) {
         moerate = moerate / data.result.length;
         aori = getAoriText(moerate);
         moerate = parseInt(moerate * 100);
+        pixivKeyword = _.sample(data.result).entryName;
       }
+
       var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
-      var pixivKeyword = _.sample(data.result).entryName;
-      var orderBy = _.sample(["date", ""]);
-      console.log("orderby ", orderBy);
-      pixiv.search({
-        word: pixivKeyword,
-        order: orderBy,
-      }, function(images){
-        var pixivImage = "";
-        var pixivUrl = "";
-        if (images.length > 0) {
-          var pixivInfo = _.sample(images);
-          if (pixivInfo.illust_480mw_url) {
-            pixivImage = pixivInfo.illust_480mw_url;
-            pixivUrl = "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=" + pixivInfo.illust_id;
-          }
-        }
-        req.session.destroy(function(err){
-          res.render('moe_result', {  
-            names: names || "何も選んでない...", 
-            moerate: moerate, 
-            url: url, 
-            namesStr: namesStr || "何も選んでない...", 
-            seoWordsForUrl: seoWordsForUrl || "",
-            aori: aori, 
-            keywords: keywords,
-            pixivImage: pixivImage,
-            pixivUrl: pixivUrl
-          });
+      req.session.destroy(function(err){
+        res.render('moe_result', {
+          names: names || "何も選んでない...",
+          moerate: moerate,
+          url: url,
+          namesStr: namesStr || "何も選んでない...",
+          seoWordsForUrl: seoWordsForUrl || "",
+          aori: aori,
+          keywords: keywords,
+          pixivKeyword: {pixivKeyword: pixivKeyword}
         });
       });
     });

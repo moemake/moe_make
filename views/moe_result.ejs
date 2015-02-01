@@ -40,13 +40,10 @@
 
       <section class="sec-pixiv-image m-b-xl">
         <h1 class="title-type1 m-b-l">あなたの好みの画像は...</h1>
-        <div class="wrap-img">
-          <% if (pixivImage === "") { %>
-            <p>見つかりませんでした。</p>
-          <% } else { %>
-            <a href="<%- pixivUrl %>" target="_blank"><img id="js-img-pixiv" class="img-pixiv-loading" src="/img/ahe/0.png" data-src="<%- pixivImage %>" /></a>
+        <div id="js-wrap-img" class="wrap-img">
+            
+            <img id="js-img-pixiv" class="img-pixiv-loading" src="/img/ahe/0.png" />
             <div id="js-text-pixiv-loading" class="text-pixiv-loading">読み込み中</div>
-          <% } %>
         </div>
       </section>
 
@@ -71,6 +68,7 @@
 
       <% include include/footer %>
     </div>
+    <script id="js-json-pixivkeyword" type="text/json"><%- JSON.stringify(pixivKeyword) %></script>
     <% include include/script %>
     <script src="/js/moe_result.js"></script>
     <% include include/analytics %>

@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
         pixivUrl = "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=" + pixivInfo.illust_id;
       }
     }
-    res.json('moe_result', {  
+    res.status(200).json({  
       pixivImage: pixivImage,
       pixivUrl: pixivUrl
     });

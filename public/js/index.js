@@ -66,7 +66,7 @@
       .removeClass('is-selected')
       .data('is-selected', false);
     entries.some(function(val, i){
-      if (val.id === id) {
+      if (val.entryId === id) {
         entries.splice(i,1);    
       }
     });
@@ -76,7 +76,6 @@
     var categoryId = $('#js-category-id').text();
     var categoryName = $('#js-category-name').text();
     var isLast = $(e.target).data('is-last') ? true : false;
-    console.log(isLast);
 
     loadingView.show();
     $.ajax({

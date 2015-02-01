@@ -6,9 +6,10 @@ var _ = require('lodash');
 
 router.get('/', function(req, res) {
   var pixivKeyword = req.query.pixivKeyword || "";
+  console.log(pixivKeyword);
   var orderBy = _.sample(["date", ""]);
   pixiv.search({
-    word: pixivKeyword,
+    word: pixivKeyword + " AND (100 OR なにこれ OR クリック推奨)",
     order: orderBy,
   }, function(images){
     var pixivImage = "";
@@ -22,7 +23,7 @@ router.get('/', function(req, res) {
     }
     res.status(200).json({  
       pixivImage: pixivImage,
-      pixivUrl: pixivUrl
+      pixivUrl: pixivUrl,
     });
   });
 });

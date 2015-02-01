@@ -21,7 +21,8 @@
     },
 
     createLoading: function() {
-      Loader.$wrapImg.append('<div id="js-pixiv-loading-' + this.imgId + '" class="m-b-xxl"><img id="js-img-pixiv" class="img-pixiv-loading" src="/img/ahe/0.png" />');
+      console.log(Loader.$wrapImg.data('moegao'));
+      Loader.$wrapImg.append('<div id="js-pixiv-loading-' + this.imgId + '" class="m-b-xxl"><img id="js-img-pixiv" class="img-pixiv-loading" src="' + Loader.$wrapImg.data('moegao') + '"/>');
     },
 
     render: function() {
@@ -77,9 +78,8 @@
   function main() {
     var json = JSON.parse($('#js-json-pixivkeyword').html());
     var pixivKeyword = json.pixivKeyword;
-    // TODO(furukawa san): こんな感じでキーワードを配列でもらえると並列でfetchします
     // JSONはmoe_result.ejsに埋め込んであります
-    var pixivKeywords = ['ぴかちゅー', 'マリオ', 'アスナ' ];
+    var pixivKeywords = pixivKeyword; 
     var imageModel = new ImageModel();
     var imageModel = new ImageModel(pixivKeywords);
     imageModel.getAllImage();

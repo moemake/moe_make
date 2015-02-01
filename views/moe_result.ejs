@@ -39,8 +39,8 @@
       </section>
 
       <section class="sec-pixiv-image m-b-xl">
-        <h1 class="title-type1 m-b-l">あなたの好みの画像は...</h1>
-        <div id="js-wrap-img" class="wrap-img"></div>
+        <h1 class="title-type1 m-b-l">あなたの今夜のおかずは...</h1>
+        <div id="js-wrap-img" class="wrap-img" data-moegao="/img/ahe/<%=moegao%>.png"></div>
       </section>
 
       <section class="sec-graph">
@@ -64,6 +64,7 @@
 
       <% include include/footer %>
     </div>
+
     <script id="js-json-pixivkeyword" type="text/json"><%- JSON.stringify(pixivKeyword) %></script>
     <% include include/script %>
     <script src="/js/moe_result.js"></script>

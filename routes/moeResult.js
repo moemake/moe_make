@@ -14,6 +14,8 @@ var moeMessages = [
   "その性癖には流石に引いてます",
 ];
 
+var IMG_NUM = 3;
+
 var getAoriText = function(moerate){
   var moeLen = moeMessages.length;
   for (var i=0; i<moeLen; i++) {
@@ -68,12 +70,16 @@ router.get('/:result/*', function(req, res) {
       }
       var aori = "なんか選べよ！！！";
       var pixivKeyword = "";
+      var moegao = _.sample([0, 1, 2, 3]);
 
       if (data.result.length !== 0) {
         moerate = moerate / data.result.length;
         aori = getAoriText(moerate);
         moerate = parseInt(moerate * 100);
-        pixivKeyword = _.sample(data.result).entryName;
+        pixivKeyword = _.sample(data.result, IMG_NUM).map(function(entry){
+          return entry.entryName;
+        });
+        console.log("test", pixivKeyword);
       }
 
       var url = "http://oremoe.herokuapp.com/moe_result/" + req.params.result + "/"; 
@@ -81,6 +87,7 @@ router.get('/:result/*', function(req, res) {
         res.render('moe_result', {
           names: names || "何も選んでない...",
           moerate: moerate,
+          moegao: moegao,
           url: url,
           namesStr: namesStr || "何も選んでない...",
           seoWordsForUrl: seoWordsForUrl || "",

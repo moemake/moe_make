@@ -22,9 +22,11 @@ router.get('/', function(req, res, next) {
   var percentage = parseInt(((categoryId-1)/(categorySize-1)) * 100);
   moe.findByCategoryId(categoryId, function(err, data){
     if (err === 'Not found') {
+      console.log(err);
       res.status(404).send('Not Found');
     }
     if (err) {
+      console.log(err);
       res.status(500).send(err);
     }
     res.render('index', { 

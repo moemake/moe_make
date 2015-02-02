@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
   console.log(pixivKeyword);
   var orderBy = _.sample(["date", ""]);
   pixiv.search({
-    word: pixivKeyword + " AND (100 OR なにこれ OR クリック推奨)",
+    word: pixivKeyword + " AND (100 OR 500 OR なにこれ OR クリック推奨 OR タグ) AND -講座 AND -素材",
     order: orderBy,
   }, function(images){
     var pixivImage = "";

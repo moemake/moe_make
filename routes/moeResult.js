@@ -14,7 +14,7 @@ var moeMessages = [
   "その性癖には流石に引いてます",
 ];
 
-var IMG_NUM = 3;
+var IMG_NUM = 5;
 
 var getAoriText = function(moerate){
   var moeLen = moeMessages.length;
